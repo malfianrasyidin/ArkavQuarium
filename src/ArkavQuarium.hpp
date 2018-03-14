@@ -31,16 +31,15 @@ class AquariumObject{
 		int x,y;
 };
 
-//Definisi 
-class Fish : public AquariumObject
-{
+//Definisi kelas Fish
+class Fish : public AquariumObject{
 public:
 	virtual void eat() = 0;
 	virtual void dropCoin() = 0;
 };
 
-//kelas ikan-ikan
-class Guppy : public AquariumObject{
+//Definisi kelas Guppy
+class Guppy : public Fish{
 	public:
 		Guppy();
 		~Guppy();
@@ -52,8 +51,8 @@ class Guppy : public AquariumObject{
 		const static int HUNGER_TIME;
 };
 
-class Piranha : public AquariumObject
-{
+//Definisi kelas Piranha
+class Piranha : public Fish{
 	public:
 		Piranha();
 		~Piranha();
@@ -65,9 +64,8 @@ class Piranha : public AquariumObject
 		const static int HUNGER_TIME;		
 };
 
-//kelas snail
-class Snail : public AquariumObject
-{
+//Definisi kelas Snail
+class Snail : public AquariumObject{
 	public:
 		Snail();
 		~Snail();
@@ -75,18 +73,16 @@ class Snail : public AquariumObject
 		void grabCoin();
 };
 
-//class makananikan
-class FishFood : public AquariumObject
-{
-public:
-	FishFood();
-	~FishFood();
-	void move();
-
+//Definisi kelas FishFood
+class FishFood : public AquariumObject{
+	public:
+		FishFood();
+		~FishFood();
+		void move();
 };
 
-class Coin : public AquariumObject
-{
+//Definisi kelas Coin
+class Coin : public AquariumObject{
 	public:
 		Coin();
 		~Coin();
@@ -96,9 +92,9 @@ class Coin : public AquariumObject
 		int value;
 };
 
+//Definisi kelas LinkedList
 template <class T>
-class LinkedList
-{
+class LinkedList{
 	public:
 		LinkedList();
 		~LinkedList();
@@ -110,6 +106,7 @@ class LinkedList
 
 	private:
 		T data;
+		static int count;
 		LinkedList *next;
 };
 
