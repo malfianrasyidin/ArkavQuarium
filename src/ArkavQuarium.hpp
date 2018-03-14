@@ -1,5 +1,12 @@
+/* 
+	TUGAS KECIL OOP - K02D
+	13516014 - Renjira Naufhal Dhiaegana
+	13516035 - Muhammad Sulthan Adhipradhana
+	13516104 - Muhammad Alfian Rasyidin
+	13516074 - Muhammad Abdullah Munir
+*/
 
-//kelas akuarium
+//Definisi kelas Aquarium
 class Aquarium{
 	public:
 		Aquarium();
@@ -10,7 +17,7 @@ class Aquarium{
 		const static int MAX_X = 100, MAX_Y = 100;
 };
 
-//ABC kelas objek akuarium
+//Definisi Kelas Abstrak AquariumObject
 class AquariumObject{
 	public:
 		virtual void move() = 0;
@@ -24,6 +31,7 @@ class AquariumObject{
 		int x,y;
 };
 
+//Definisi 
 class Fish : public AquariumObject
 {
 public:
