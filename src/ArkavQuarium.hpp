@@ -7,7 +7,7 @@ class Aquarium{
 		
 	private:
 		int x,y;
-		const static int MAX_X = ..., MAX_Y = ...;
+		const static int MAX_X = 100, MAX_Y = 100;
 };
 
 //ABC kelas objek akuarium
