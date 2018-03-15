@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">ArkavQuarium
    </div>
+   <div id="projectbrief">TUGAS KECIL OOP - K02D</div>
   </td>
  </tr>
  </tbody>
@@ -63,8 +64,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_piranha-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Piranha Class Reference</div>  </div>
@@ -75,7 +74,8 @@ Inheritance diagram for Piranha:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_piranha__inherit__graph.png" border="0" usemap="#_piranha_inherit__map" alt="Inheritance graph"/></div>
 <map name="_piranha_inherit__map" id="_piranha_inherit__map">
-<area shape="rect" id="node2" href="class_aquarium_object.html" title="AquariumObject" alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="class_fish.html" title="Fish" alt="" coords="5,5,52,32"/>
+<area shape="rect" id="node3" href="class_aquarium_object.html" title="AquariumObject" alt="" coords="77,5,191,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -83,7 +83,8 @@ Collaboration diagram for Piranha:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_piranha__coll__graph.png" border="0" usemap="#_piranha_coll__map" alt="Collaboration graph"/></div>
 <map name="_piranha_coll__map" id="_piranha_coll__map">
-<area shape="rect" id="node2" href="class_aquarium_object.html" title="AquariumObject" alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="class_fish.html" title="Fish" alt="" coords="5,5,52,32"/>
+<area shape="rect" id="node3" href="class_aquarium_object.html" title="AquariumObject" alt="" coords="77,5,191,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -95,6 +96,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> ()</td></tr>
 <tr class="memitem:ac48c0256edd56c427b3d82f6e0d4df82"><td class="memItemLeft" align="right" valign="top"><a id="ac48c0256edd56c427b3d82f6e0d4df82"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>eat</b> ()</td></tr>
 <tr class="separator:ac48c0256edd56c427b3d82f6e0d4df82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_fish"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_fish')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_fish.html">Fish</a></td></tr>
+<tr class="memitem:a899c7712639756297b9205e8bbcc2cf6 inherit pub_methods_class_fish"><td class="memItemLeft" align="right" valign="top"><a id="a899c7712639756297b9205e8bbcc2cf6"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>dropCoin</b> ()=0</td></tr>
+<tr class="separator:a899c7712639756297b9205e8bbcc2cf6 inherit pub_methods_class_fish"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_aquarium_object"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_aquarium_object')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_aquarium_object.html">AquariumObject</a></td></tr>
 <tr class="memitem:a1dd18ba4c21c8fb1c0796791f527a257 inherit pub_methods_class_aquarium_object"><td class="memItemLeft" align="right" valign="top"><a id="a1dd18ba4c21c8fb1c0796791f527a257"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>getX</b> () const</td></tr>
@@ -108,27 +113,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setX</b> (int)</td></
 <tr class="memitem:aa2ee76b48d56edf3b4cc5bcd199f8efe inherit pub_methods_class_aquarium_object"><td class="memItemLeft" align="right" valign="top"><a id="aa2ee76b48d56edf3b4cc5bcd199f8efe"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setY</b> (int)</td></tr>
 <tr class="separator:aa2ee76b48d56edf3b4cc5bcd199f8efe inherit pub_methods_class_aquarium_object"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:abea125690488722265177909ed0fdb7e"><td class="memItemLeft" align="right" valign="top"><a id="abea125690488722265177909ed0fdb7e"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>hunger</b></td></tr>
-<tr class="separator:abea125690488722265177909ed0fdb7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa18a001edf0dd5bdc8457cc6b44fc6bf"><td class="memItemLeft" align="right" valign="top"><a id="aa18a001edf0dd5bdc8457cc6b44fc6bf"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>drop_time</b></td></tr>
-<tr class="separator:aa18a001edf0dd5bdc8457cc6b44fc6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14faa0bdb4014e0715e4ecb354cf8f21"><td class="memItemLeft" align="right" valign="top"><a id="a14faa0bdb4014e0715e4ecb354cf8f21"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>state</b></td></tr>
-<tr class="separator:a14faa0bdb4014e0715e4ecb354cf8f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:ac84644fa2873785ce52c046923059fbe"><td class="memItemLeft" align="right" valign="top"><a id="ac84644fa2873785ce52c046923059fbe"></a>
-static const int&#160;</td><td class="memItemRight" valign="bottom"><b>HUNGER_TIME</b></td></tr>
-<tr class="separator:ac84644fa2873785ce52c046923059fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/media/malfianrasyidin/ALFIAN/c++/ArkavQuarium/src/<a class="el" href="_arkav_quarium_8hpp_source.html">ArkavQuarium.hpp</a></li>
+<li>/media/malfianrasyidin/ALFIAN/c++/ArkavQuarium/src/<a class="el" href="_piranha_8hpp_source.html">Piranha.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
