@@ -1,4 +1,5 @@
 *.o
 a.out
 main
-main.cpp
+oopquarium
+.DS_Store

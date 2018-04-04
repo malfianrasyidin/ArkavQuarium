@@ -3,22 +3,34 @@
 
 #include <iostream>
 #include "AquariumObject.hpp"
+#include "./../oop.hpp"
 using namespace std;
 
 //Definisi kelas Coin
 class Coin : public AquariumObject{
 	public:
 		//ctor
-		Coin();
+		Coin(double, double, int);
 
 		//dtor
-		~Coin();
+		virtual ~Coin();
 
 		//fungsi memindahkan objek
 		void move();
 
+		int getValue() const;
+
+		bool operator!=(const Coin&);
+
+		static LinkedList<Coin>* & getListCoin();
+
   	private:
-		int value;
+		const int value;
+		static LinkedList<Coin>* & getObjectListCoin() {
+	        static LinkedList<Coin>* list_coin;
+	        return list_coin;
+    	}
+
 };
 
 #endif

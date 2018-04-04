@@ -18,16 +18,16 @@ class LinkedList{
 		//dtor
 		~LinkedList() {
 			while (!isEmpty()) {
-				remove(*first);
+				remove((*first).getData());
 			}
 		}
 
 		//mendapatkan indeks dari LinkedList yang terdapat T
-		int find(Node<T>& node) {
+		int find(T& val) {
 			Node<T>* it = first;
 			int i = 0;
 
-			while (((*it).getNext() != NULL)  && ((*it).getData() != node.getData())) {
+			while (((*it).getNext() != NULL)  && ((*it).getData() != val)) {
 				it = (*it).getNext();
 				i++;
 			} 
@@ -41,14 +41,15 @@ class LinkedList{
 		}
 
 		//menambah Node T
-		void add(Node<T>* node){
+		void add(T* val){
+			Node<T> *node = new Node<T>(val);
 			count++;
 			(*node).setNext(first);
 			first = node;
 		}
 		
 		//menghapus Node T
-		void remove(Node<T>& node){
+		void remove(T& node){
 			int i = find(node);
 			Node<T>* it = first;
 
@@ -70,11 +71,11 @@ class LinkedList{
 		}
 		
 		//getter
-		Node<T>& get(int idx) {
+		T& get(int idx) {
 			Node<T>* it = first;
 			for (int i=0; i<idx; i++)
 				it = (*it).getNext();
-			return *it;
+			return (*it).getData();
 		}
 
 		int getCount(){

@@ -24,9 +24,13 @@ class Guppy : public Fish, public AquariumObject{
 		//fungsi drop coin
 		void dropCoin(LinkedList<Coin>&);
 
+		//fungsi pengecekan hunger
+		bool isHungry();
+
 	private:
 		int hunger, drop_time, state;
-		const static int HUNGER_TIME;
+		const static int HUNGER_TIME = 10;
+		const static int MAX_HUNGER = 60;
 };
 
 #endif
