@@ -15,6 +15,7 @@ class AquariumObject {
 		//getter
 		double getX() const;
 		double getY() const;
+		Aquarium& getAquarium();
 		
 		//setter
 		void setX(double);
