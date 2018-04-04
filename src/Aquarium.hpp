@@ -20,13 +20,12 @@ class Aquarium{
 		~Aquarium();
 
 	private:
-		int x, y;
 		LinkedList<Guppy> list_guppy;
 		LinkedList<Piranha> list_piranha;
 		LinkedList<FishFood> list_fish_food;
 		LinkedList<Coin> list_coin;
 		Snail* snail;
-		const static int MAX_X = 100, MAX_Y = 100;
+
 };
 
 #endif
