@@ -16,10 +16,13 @@ class Guppy : public Fish, public AquariumObject{
 		~Guppy();
 
 		//fungsi memindahkan objek
-		void move();
+		void move(LinkedList<FishFood>&);
 		
 		//fungsi memakan FishFood
-		void eat();
+		void eat(LinkedList<FishFood>&);
+
+		//fungsi drop coin
+		void dropCoin(LinkedList<Coin>&);
 
 	private:
 		int hunger, drop_time, state;

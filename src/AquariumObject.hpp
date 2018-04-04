@@ -2,7 +2,7 @@
 #define AQUARIUMOBJECT_HPP
 
 #include <iostream>
-#include "Aquarium.hpp"
+#include "LinkedList.hpp"
 
 using namespace std;
 
@@ -15,7 +15,6 @@ class AquariumObject {
 		//getter
 		double getX() const;
 		double getY() const;
-		Aquarium& getAquarium();
 		
 		//setter
 		void setX(double);
@@ -23,7 +22,6 @@ class AquariumObject {
 		
 	private:
 		double x,y;
-		static Aquarium aquarium;
 
 };
 

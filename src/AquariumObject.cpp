@@ -19,7 +19,3 @@ void AquariumObject::setX(double x) {
 void AquariumObject::setY(double y) {
 	this->y = y;
 }
-
-Aquarium& AquariumObject::getAquarium() {
-	return this->aquarium;
-}

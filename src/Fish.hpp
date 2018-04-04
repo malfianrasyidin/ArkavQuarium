@@ -7,8 +7,8 @@ using namespace std;
 //Definisi kelas Fish
 class Fish {
 	public:
-		virtual void eat() = 0;
-		virtual void dropCoin() = 0;
+		virtual void eat(LinkedList<FishFood>&) = 0;
+		virtual void dropCoin(LinkedList<Coin>&) = 0;
 };
 
 #endif

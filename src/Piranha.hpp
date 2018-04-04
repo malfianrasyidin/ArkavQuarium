@@ -16,10 +16,13 @@ class Piranha : public Fish, public AquariumObject{
 		~Piranha();
 
 		//fungsi memindahkan objek
-		void move();
+		void move(LinkedList<Guppy>&);
+		
+		//fungsi memakan FishFood
+		void eat(LinkedList<Guppy>&);
 
-		//fungsi memakan Fish
-		void eat();
+		//fungsi drop coin
+		void dropCoin(LinkedList<Coin>&);
 
 	private:
 		int hunger, drop_time, state;

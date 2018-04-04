@@ -15,10 +15,10 @@ class Snail : public AquariumObject {
 		~Snail();
 
 		//fungsi memindahkan objek
-		void move();
+		void move(LinkedList<Coin>&);
 
 		//fungsi mengambil koin
-		void grabCoin();
+		void grabCoin(LinkedList<Coin>&);
 };
 
 #endif

@@ -9,19 +9,31 @@ template <class T>
 class Node{
 	public:
 		//ctor
-		Node();
+		Node(T* data){
+			this->data = data;
+		}
 
 		//dtor
-		~Node();
+		~Node(){
+			delete this->data;
+		}
 
 		//getter
-		T get();
+		T& getData() {
+			return (*data);
+		}
+		Node<T>* getNext(){
+			return this->next;
+		}
 
 		//setter
-		void set(const T&);
+		void setNext(Node<T>* next){
+			this->next = next;
+		}
 
 	private:
-		T data;
+		T* data;
+		Node<T>* next;
 };
 
 #endif
