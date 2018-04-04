@@ -2,23 +2,29 @@
 #define AQUARIUMOBJECT_HPP
 
 #include <iostream>
+#include "Aquarium.hpp"
+
 using namespace std;
 
 //Definisi Kelas Abstrak AquariumObject
 class AquariumObject {
 	public:
+		
 		virtual void move() = 0;
 		
 		//getter
-		int getX() const;
-		int getY() const;
+		double getX() const;
+		double getY() const;
+		Aquarium& getAquarium();
 		
 		//setter
-		void setX(int);
-		void setY(int);
+		void setX(double);
+		void setY(double);
 		
 	private:
-		int x,y;
+		double x,y;
+		static Aquarium aquarium;
+
 };
 
 #endif
