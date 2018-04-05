@@ -16,17 +16,31 @@ class Piranha : public Fish, public AquariumObject{
 		~Piranha();
 
 		//fungsi memindahkan objek
-		void move(LinkedList<Guppy>&);
+		void move();
 		
-		//fungsi memakan FishFood
-		void eat(LinkedList<Guppy>&);
+		//fungsi memakan Guppy
+		void eat();
 
 		//fungsi drop coin
-		void dropCoin(LinkedList<Coin>&);
+		void dropCoin();
+
+		//getter static list
+		static LinkedList<Coin>* & getListCoin();
+		static LinkedList<Guppy>* & getListGuppy();
 
 	private:
 		int hunger, drop_time, state;
-		const static int HUNGER_TIME;
+		static LinkedList<Coin>* & getObjectListCoin() {
+	        static LinkedList<Coin>* list_coin;
+	        return list_coin;
+    	}
+    	static LinkedList<Guppy>* & getObjectListGuppy() {
+	        static LinkedList<Guppy>* list_guppy;
+	        return list_guppy;
+    	}
+		const static int HUNGER_TIME = 20;
+		const static int MAX_HUNGER = 100;
+
 };
 
 #endif

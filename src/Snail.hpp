@@ -15,10 +15,19 @@ class Snail : public AquariumObject {
 		~Snail();
 
 		//fungsi memindahkan objek
-		void move(LinkedList<Coin>&);
+		void move();
 
 		//fungsi mengambil koin
-		void grabCoin(LinkedList<Coin>&);
+		void grabCoin();
+
+		//getter static list
+		static LinkedList<Coin>* & getListCoin();
+		
+	private:
+		static LinkedList<Coin>* & getObjectListCoin() {
+	        static LinkedList<Coin>* list_coin;
+	        return list_coin;
+    	}
 };
 
 #endif

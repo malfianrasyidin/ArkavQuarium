@@ -3,24 +3,39 @@
 #include "Guppy.hpp"
 
 //ctor
-Guppy::Guppy() {
-	this->hunger = 10;
+Guppy::Guppy(){
+
 }
 
 //dtor
-Guppy::~Guppy() {}
+Guppy::~Guppy(){
+
+}
 
 //fungsi memindahkan objek
-void Guppy::move(LinkedList<FishFood>& list_food) {
-	
+void Guppy::move(){
+
 }
 
 //fungsi memakan FishFood
-void eat(LinkedList<FishFood>&);
+void Guppy::eat(){
+
+}
 
 //fungsi drop coin
-void dropCoin(LinkedList<Coin>&);
+void Guppy::dropCoin(){
 
-bool Guppy::isHungry() {
-	return hunger <= HUNGER_TIME;
+}
+
+//fungsi pengecekan hunger
+bool Guppy::isHungry(){
+
+}
+
+//getter static list
+LinkedList<Coin>* & Guppy::getListCoin(){
+	return getObjectListCoin();
+}
+LinkedList<FishFood>* & Guppy::getListFishFood(){
+	return getObjectListFishFood();
 }
