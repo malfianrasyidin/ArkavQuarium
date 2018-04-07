@@ -19,6 +19,13 @@ class Aquarium{
 		//dtor
 		~Aquarium();
 
+		//getter
+		LinkedList<Guppy>& getListGuppy();
+		LinkedList<Piranha>& getListPiranha();
+		LinkedList<FishFood>& getListFishFood();
+		LinkedList<Coin>& getListCoin();
+		Snail* getSnail();
+
 	private:
 		LinkedList<Guppy> list_guppy;
 		LinkedList<Piranha> list_piranha;

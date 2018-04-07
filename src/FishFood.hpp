@@ -9,13 +9,28 @@ using namespace std;
 class FishFood : public AquariumObject{
 	public:
 		//ctor
-    	FishFood();
+    	FishFood(double, double);
 
 		//dtor
-    	~FishFood();
+    	virtual ~FishFood();
 
 		//fungsi memindahkan objek
     	void move();
+
+        //getter
+        double getRadius() const;
+
+        bool operator!=(const FishFood&);
+
+    	//getter static list
+    	static LinkedList<FishFood>* & getListFishFood();
+
+    private:
+        constexpr static double radius = 5;
+    	static LinkedList<FishFood>* & getObjectListFishFood() {
+	        static LinkedList<FishFood>* list_fish_food;
+	        return list_fish_food;
+    	}
 };
 
 #endif

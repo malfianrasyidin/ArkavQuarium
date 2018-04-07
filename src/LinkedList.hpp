@@ -27,7 +27,7 @@ class LinkedList{
 			Node<T>* it = first;
 			int i = 0;
 
-			while (((*it).getNext() != NULL)  && ((*it).getData() != val)) {
+			while (((*it).getNext() != NULL) && ((*it).getData() != val)) {
 				it = (*it).getNext();
 				i++;
 			} 

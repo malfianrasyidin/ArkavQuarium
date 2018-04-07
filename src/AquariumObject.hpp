@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "LinkedList.hpp"
+#include "../oop.hpp"
 
 using namespace std;
 
@@ -11,17 +12,21 @@ class AquariumObject {
 	public:
 		
 		virtual void move() = 0;
+
+		bool isIntersect(const AquariumObject&);
+		double getDistance(const AquariumObject&);
 		
 		//getter
 		double getX() const;
 		double getY() const;
+		virtual double getRadius() const = 0;
 		
 		//setter
 		void setX(double);
 		void setY(double);
 		
 	private:
-		double x,y;
+		double x, y;
 
 };
 
