@@ -55,9 +55,9 @@ void Piranha::move(){
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhar.png", getX(), getY());
 		} else {
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhal.png", getX(), getY());
 		}
 
 		if (isIntersect(*targetFood)) {
@@ -82,9 +82,9 @@ void Piranha::move(){
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhar.png", getX(), getY());
 		} else {
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhal.png", getX(), getY());
 		}
 	}
 

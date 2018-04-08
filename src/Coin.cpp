@@ -12,7 +12,7 @@ Coin::~Coin() {}
 
 //fungsi memindahkan objek
 void Coin::move() {
-	if (this->getY() <= 550){
+	if (this->getY() <= 600){
 		this->setY(this->getY() + VELOCITY * (time_since_start() - lastLoopTime));
 	}
 	draw_image("coin.png" ,getX(), getY());
