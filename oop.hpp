@@ -8,8 +8,8 @@
 #include <string>
 
 // Pengaturan ukuran layar yang dihasilkan.
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1280;
+const int SCREEN_HEIGHT = 720;
 
 // Nama font yang digunakan untuk menggambar tulisan.
 const char* const FONT_NAME = "OpenSans-Regular.ttf";
@@ -62,6 +62,14 @@ const std::set<SDL_Keycode>& get_pressed_keys();
 // Mengembalikan himpunan kode tombol yang baru mulai ditekan pada saat
 // handle_input() terakhir dipanggil.
 const std::set<SDL_Keycode>& get_tapped_keys();
+
+int get_x_position();
+
+int get_y_position();
+
+void clear_x_position();
+
+void clear_y_position();
 
 // ---------------------------------- WAKTU ----------------------------------
 

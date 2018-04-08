@@ -2,13 +2,11 @@
 
 //ctor
 Aquarium::Aquarium(){
-	snail = new Snail(320,450);
+	snail = new Snail(320,550);
 }
 
 //dtor
-Aquarium::~Aquarium(){
-
-}
+Aquarium::~Aquarium() {}
 
 //getter
 LinkedList<Guppy>& Aquarium::getListGuppy(){

@@ -37,7 +37,7 @@ class Piranha : public Fish, public AquariumObject{
 		static LinkedList<Piranha>* & getListPiranha();
 
 	private:
-		int hunger, drop_time, state;
+		int hunger, state;
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;

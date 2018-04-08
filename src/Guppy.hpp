@@ -2,7 +2,10 @@
 #define GUPPY_HPP
 
 #include <iostream>
+
+#include "../oop.hpp"
 #include "Fish.hpp"
+#include "FishFood.hpp"
 #include "AquariumObject.hpp"
 #include "FishFood.hpp"
 #include "Coin.hpp"
@@ -34,13 +37,17 @@ class Guppy : public Fish, public AquariumObject{
 
 		bool operator!=(const Guppy&);
 
+		int getHunger();
+
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<FishFood>* & getListFishFood();
 		static LinkedList<Guppy>* & getListGuppy();
 
 	private:
-		int hunger, drop_time, state;
+		int hunger, state, timesEaten;
+		double lastDropTime, lastHungerTime, lastLoopTime;
+
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
@@ -53,8 +60,15 @@ class Guppy : public Fish, public AquariumObject{
 	        static LinkedList<Guppy>* list_guppy;
 	        return list_guppy;
     	}
-		const static int HUNGER_TIME = 10;
+
+    	FishFood* targetFood;
+
+		const static int HUNGER_TIME = 30;
+		const static int DROP_TIME = 15;
 		const static int MAX_HUNGER = 60;
+		const static int COIN_DROP_VALUE = 5;
+		const static int VELOCITY = 50;
+
 		constexpr static double radius = 30;
 };
 

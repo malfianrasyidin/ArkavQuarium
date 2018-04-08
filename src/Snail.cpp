@@ -7,9 +7,7 @@ Snail::Snail(double x, double y){
 }
 
 //dtor
-Snail::~Snail(){
-
-}
+Snail::~Snail() {}
 
 //fungsi memindahkan objek
 void Snail::move(){
@@ -51,7 +49,7 @@ void Snail::move(){
 			this->grabCoin(*coin);
 		}
 	}
-	draw_image("coin_edit.png" ,getX(), getY());
+	draw_image("snail2.png" ,getX(), getY());
 }
 
 //fungsi mengambil koin

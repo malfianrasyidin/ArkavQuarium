@@ -11,10 +11,10 @@ Coin::~Coin() {}
 
 //fungsi memindahkan objek
 void Coin::move() {
-	if (this->getY() <= 450){
-		this->setY(this->getY() + 0.05);
+	if (this->getY() <= 550){
+		this->setY(this->getY() + 0.5);
 	}
-	draw_image("coin_edit.png" ,getX(), getY());
+	draw_image("coin.png" ,getX(), getY());
 }
 
 

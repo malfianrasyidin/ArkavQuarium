@@ -40,6 +40,8 @@ int main( int argc, char* args[] )
 
     double prevtime = time_since_start();
 
+    aquarium.getListGuppy().add(new Guppy());
+
     while (running) {
         double now = time_since_start();
         double sec_since_last = now - prevtime;
@@ -53,37 +55,37 @@ int main( int argc, char* args[] )
         // Gerakkan ikan selama tombol panah ditekan
         // Kecepatan dikalikan dengan perbedaan waktu supaya kecepatan ikan
         // konstan pada komputer yang berbeda.
-        for (auto key : get_pressed_keys()) {
-            switch (key) {
-            case SDLK_UP:
-                cy -= speed * sec_since_last;
-                break;
-            case SDLK_DOWN:
-                cy += speed * sec_since_last;
-                break;
-            case SDLK_LEFT:
-                cx -= speed * sec_since_last;
-                break;
-            case SDLK_RIGHT:
-                cx += speed * sec_since_last;
-                break;
-            }
-        }
+        // for (auto key : get_pressed_keys()) {
+        //     switch (key) {
+        //     case SDLK_UP:
+        //         cy -= speed * sec_since_last;
+        //         break;
+        //     case SDLK_DOWN:
+        //         cy += speed * sec_since_last;
+        //         break;
+        //     case SDLK_LEFT:
+        //         cx -= speed * sec_since_last;
+        //         break;
+        //     case SDLK_RIGHT:
+        //         cx += speed * sec_since_last;
+        //         break;
+        //     }
+        // }
 
-        // Proses masukan yang bersifat "tombol"
-        for (auto key : get_tapped_keys()) {
-            switch (key) {
-            // r untuk reset
-            case SDLK_r:
-                cy = SCREEN_HEIGHT / 2;
-                cx = SCREEN_WIDTH / 2;
-                break;
-            // x untuk keluar
-            case SDLK_x:
-                running = false;
-                break;
-            }
-        }
+        // // Proses masukan yang bersifat "tombol"
+        // for (auto key : get_tapped_keys()) {
+        //     switch (key) {
+        //     // r untuk reset
+        //     case SDLK_r:
+        //         cy = SCREEN_HEIGHT / 2;
+        //         cx = SCREEN_WIDTH / 2;
+        //         break;
+        //     // x untuk keluar
+        //     case SDLK_x:
+        //         running = false;
+        //         break;
+        //     }
+        // }
 
         // Update FPS setiap detik
         frames_passed++;
@@ -96,20 +98,33 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
-        if (aquarium.getListCoin().getCount() < 3){
-            aquarium.getListCoin().add(new Coin(rand()%640,20,rand() % 20));
+        // if (aquarium.getListCoin().getCount() < 3){
+        //     aquarium.getListCoin().add(new Coin(rand()%640,20,rand() % 20));
+        // }
+
+        if (get_x_position() != 0) {
+            aquarium.getListFishFood().add(new FishFood(get_x_position(), 0));
+            clear_x_position();
         }
 
         // Gambar ikan di posisi yang tepat.
         clear_screen();
-        draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
-        draw_text(fps_text, 18, 10, 30, 0, 0, 0);
+        // draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
+        // draw_text(fps_text, 18, 10, 30, 0, 0, 0);
         for (int i=0; i<aquarium.getListCoin().getCount(); i++){
             aquarium.getListCoin().get(i).move();
             // printf("%d : %f %f\n", i, aquarium.getListCoin()->get(i).getX(), aquarium.getListCoin()->get(i).getY());
         }
+        for (int i = 0; i < aquarium.getListFishFood().getCount(); i++) {
+            aquarium.getListFishFood().get(i).move();
+        }
+        for (int i = 0; i < aquarium.getListGuppy().getCount(); i++) {
+            aquarium.getListGuppy().get(i).move();
+            draw_text(to_string(aquarium.getListGuppy().get(i).getHunger()), 18, 10, 10, 0, 0, 0);
+        }
+
         aquarium.getSnail()->move();
-        draw_image("ikan.png", cx, cy);
+        //draw_image("ikan.png", cx, cy);
         update_screen();
     }
 
