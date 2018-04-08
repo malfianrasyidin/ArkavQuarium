@@ -42,9 +42,12 @@ class Piranha : public Fish, public AquariumObject{
 		static LinkedList<Guppy>* & getListGuppy();
 		static LinkedList<Piranha>* & getListPiranha();
 
+	protected:
+		double targetX, targetY;
+		
 	private:
 		int hunger;
-		double lastHungerTime, lastLoopTime;
+		double lastHungerTime, lastLoopTime, lastMoveTime;
 
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
