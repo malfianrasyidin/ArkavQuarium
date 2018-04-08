@@ -3,6 +3,7 @@
 #include "Guppy.hpp"
 #include <math.h>
 #include <stdlib.h>
+#include <sstream>
 
 //ctor
 Guppy::Guppy(){
@@ -14,10 +15,10 @@ Guppy::Guppy(){
 	lastHungerTime = time_since_start();
   lastLoopTime = time_since_start();
 	lastMoveTime = time_since_start();
-	targetX = rand() % 1280;
-	targetY = rand() % 550;
-	this->setX(rand() % 1280);
-	this->setY(rand() % 550);
+	targetX = rand() % 1080;
+	targetY = (rand() % 550) + 120;
+	this->setX(rand() % 1080);
+	this->setY((rand() % 550) + 120);
 }
 
 //dtor
@@ -25,6 +26,9 @@ Guppy::~Guppy() {}
 
 //fungsi memindahkan objek
 void Guppy::move(){
+
+	stringstream fname;
+	fname << "guppy";
 
 	//kurangi hunger
 	if (time_since_start() - lastHungerTime >= 1) {
@@ -55,19 +59,21 @@ void Guppy::move(){
 
 		tempFood = &listFishFood->get(idx);
 	}
-	
+
 	if (tempFood != NULL) {
 		targetFood = tempFood;
 
 		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
 
-		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
-		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
+		this->setX(getX() + VELOCITY*(1.5) * cos(angle) * (time_since_start() - lastLoopTime));
+		this->setY(getY() + VELOCITY*(1.5) * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("ikanr.png", getX(), getY());
+			fname << "r" << state << ".png";
+			draw_image(fname.str(), getX(), getY());
 		} else {
-			draw_image("ikanl.png", getX(), getY());
+			fname << "l" << state << ".png";
+			draw_image(fname.str(), getX(), getY());
 		}
 
 		if (isIntersect(*targetFood)) {
@@ -76,13 +82,13 @@ void Guppy::move(){
 	} else {
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
-			targetX = rand() % 1280;
+			targetX = rand() % 1080;
 			while (fabs(targetX-this->getX()) < 10){
-				targetX = rand() % 1280;
+				targetX = rand() % 1080;
 			}
-			targetY = rand() % 500;
+			targetY = (rand() % 500) + 120;
 			while (fabs(targetY-this->getY()) < 10){
-				targetY = rand() % 500;
+				targetY = (rand() % 500) + 120;
 			}
 			lastMoveTime = time_since_start();
 		}
@@ -92,9 +98,11 @@ void Guppy::move(){
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("ikanr.png", getX(), getY());
+			fname << "r" << state << ".png";
+			draw_image(fname.str(), getX(), getY());
 		} else {
-			draw_image("ikanl.png", getX(), getY());
+			fname << "l" << state << ".png";
+			draw_image(fname.str(), getX(), getY());
 		}
 	} 
 
@@ -111,7 +119,7 @@ void Guppy::eat(){
 	getListFishFood()->remove(*targetFood);
 	targetFood = NULL;
 	hunger = MAX_HUNGER;
-
+	timesEaten++;
 	if ((timesEaten != 0) && (timesEaten % 3 == 0) && (state < 3)) {
 		state++;
 	}

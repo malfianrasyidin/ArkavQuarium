@@ -11,8 +11,8 @@ FishFood::~FishFood() {}
 
 //fungsi memindahkan objek
 void FishFood::move(){
-	if (this->getY() <= 550){
-		this->setY(this->getY() + 0.05);
+	if (this->getY() <= 600){
+		this->setY(this->getY() + 0.3);
 	} else {
 		getListFishFood()->remove(*this);
 	}	

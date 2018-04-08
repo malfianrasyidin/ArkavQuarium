@@ -2,7 +2,7 @@
 
 //ctor
 Aquarium::Aquarium(){
-	snail = new Snail(320,550);
+	snail = new Snail(320,600);
 }
 
 //dtor
