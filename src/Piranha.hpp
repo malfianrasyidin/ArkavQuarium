@@ -2,17 +2,20 @@
 #define PIRANHA_HPP
 
 #include <iostream>
+
 #include "AquariumObject.hpp"
+#include "../oop.hpp"
 #include "Fish.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
+
 using namespace std;
 
 //Definisi kelas Piranha
 class Piranha : public Fish, public AquariumObject{
 	public:
 		//ctor
-		Piranha(double, double);
+		Piranha();
 
 		//dtor
 		virtual ~Piranha();
@@ -26,6 +29,9 @@ class Piranha : public Fish, public AquariumObject{
 		//fungsi drop coin
 		void dropCoin();
 
+		//fungsi pengecekan hunger
+		bool isHungry();
+
 		//getter
 		double getRadius() const;
 
@@ -37,7 +43,9 @@ class Piranha : public Fish, public AquariumObject{
 		static LinkedList<Piranha>* & getListPiranha();
 
 	private:
-		int hunger, state;
+		int hunger;
+		double lastHungerTime, lastLoopTime;
+
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
@@ -50,8 +58,14 @@ class Piranha : public Fish, public AquariumObject{
 	        static LinkedList<Piranha>* list_piranha;
 	        return list_piranha;
     	}
-		const static int HUNGER_TIME = 20;
-		const static int MAX_HUNGER = 100;
+
+    	Guppy* targetFood;
+
+		const static int HUNGER_TIME = 30;
+		const static int MAX_HUNGER = 60;
+		const static int VELOCITY = 50;
+		const static int GUPPY_PRICE = 10;
+
 		constexpr static double radius = 40;
 };
 
