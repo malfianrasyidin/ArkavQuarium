@@ -39,6 +39,8 @@ class Guppy : public Fish, public AquariumObject{
 
 		int getHunger();
 
+		int getState();
+
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<FishFood>* & getListFishFood();

@@ -2,7 +2,7 @@
 
 #include "Guppy.hpp"
 #include <math.h>
-#include <exception>
+#include <stdlib.h>
 
 //ctor
 Guppy::Guppy(){
@@ -12,12 +12,12 @@ Guppy::Guppy(){
 	targetFood = NULL;
 	lastDropTime = time_since_start();
 	lastHungerTime = time_since_start();
-	lastLoopTime = time_since_start();
+  lastLoopTime = time_since_start();
 	lastMoveTime = time_since_start();
 	targetX = rand() % 1280;
-	targetY = rand() % 720;
-	this->setX(300);
-	this->setY(300);
+	targetY = rand() % 550;
+	this->setX(rand() % 1280);
+	this->setY(rand() % 550);
 }
 
 //dtor
@@ -96,7 +96,7 @@ void Guppy::move(){
 		} else {
 			draw_image("ikanl.png", getX(), getY());
 		}
-	}
+	} 
 
 	lastLoopTime = time_since_start();
 	targetFood = NULL;
@@ -141,6 +141,10 @@ bool Guppy::operator!=(const Guppy& guppy){
 
 int Guppy::getHunger() {
 	return this->hunger;
+}
+
+int Guppy::getState() {
+	return this->state;
 }
 
 //getter static list
