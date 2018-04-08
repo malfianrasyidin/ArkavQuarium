@@ -7,6 +7,13 @@ bool AquariumObject::isIntersect(const AquariumObject& ao){
     return this->getDistance(ao) <= rad*rad;
 }
 
+bool AquariumObject::isIntersect(double x, double y, double r){
+	double x1 = this->getX() - x;
+    double y1 = this->getY() - y;
+	double rad = this->getRadius()+r;
+    return x1*x1+y1*y1 <= rad*rad;
+}
+
 double AquariumObject::getDistance(const AquariumObject& ao){
 	double x = this->getX() - ao.getX();
     double y = this->getY() - ao.getY();

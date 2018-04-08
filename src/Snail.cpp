@@ -4,6 +4,7 @@
 Snail::Snail(double x, double y){
 	this->setX(x);
 	this->setY(y);
+	lastLoopTime = time_since_start();
 }
 
 //dtor
@@ -23,8 +24,7 @@ void Snail::move(){
 	} else {
 		min = this->getDistance(listcoin->get(0));
 		idx = 0;
-		for (int i=1; i<listcoin->getCount(); i++){
-			// printf("%d : %f %f, %f %f\n", i, getX(), getY(), listcoin->get(i).getX(), listcoin->get(i).getY());
+		for (int i = 1; i < listcoin->getCount(); i++){
 			temp = this->getDistance(listcoin->get(i));
 			if (min > temp){
 				idx = i;
@@ -33,27 +33,29 @@ void Snail::move(){
 		}
 		move = 1;
 		coin = &listcoin->get(idx);
-		// printf("%f %f, %f %f\n", getX(), getY(), coin->getX(), coin->getY());
 	}
 
 	if (move == 1){
 		if (coin->getX() < this->getX()){
-			this->setX(this->getX() - 0.25);
+			this->setX(this->getX() - VELOCITY * (time_since_start() - lastLoopTime));
 			draw_image("snaill.png" ,getX(), getY());
 		} else {
-			this->setX(this->getX() + 0.25);
+			this->setX(this->getX() + VELOCITY * (time_since_start() - lastLoopTime));
 			draw_image("snailr.png" ,getX(), getY());
 		}
 		if (this->isIntersect(*coin)){
 			this->grabCoin(*coin);
 		}
+		lastLoopTime = time_since_start();
 		return;
 	}
 	draw_image("snaill.png" ,getX(), getY());
+	lastLoopTime = time_since_start();
 }
 
 //fungsi mengambil koin
 void Snail::grabCoin(Coin& coin){
+	*money += coin.getValue();
 	getListCoin()->remove(coin);
 }
 
@@ -65,4 +67,9 @@ double Snail::getRadius() const{
 //getter static list
 LinkedList<Coin>* & Snail::getListCoin(){
 	return getObjectListCoin();
+}
+
+//setter
+void Snail::setMoney(int* money) {
+	this->money = money;
 }

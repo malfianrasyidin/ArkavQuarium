@@ -12,7 +12,7 @@ Guppy::Guppy(){
 	targetFood = NULL;
 	lastDropTime = time_since_start();
 	lastHungerTime = time_since_start();
-  lastLoopTime = time_since_start();
+  	lastLoopTime = time_since_start();
 	lastMoveTime = time_since_start();
 	targetX = rand() % 1280;
 	targetY = rand() % 550;
@@ -77,11 +77,11 @@ void Guppy::move(){
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1280;
-			while (fabs(targetX-this->getX()) < 10){
+			while (fabs(targetX-this->getX()) < 70){
 				targetX = rand() % 1280;
 			}
 			targetY = rand() % 500;
-			while (fabs(targetY-this->getY()) < 10){
+			while (fabs(targetY-this->getY()) < 20){
 				targetY = rand() % 500;
 			}
 			lastMoveTime = time_since_start();
@@ -91,7 +91,7 @@ void Guppy::move(){
 		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
-		if (cos(angle) >= 0){
+		if (cos(angle) > 0){
 			draw_image("ikanr.png", getX(), getY());
 		} else {
 			draw_image("ikanl.png", getX(), getY());
@@ -111,6 +111,7 @@ void Guppy::eat(){
 	getListFishFood()->remove(*targetFood);
 	targetFood = NULL;
 	hunger = MAX_HUNGER;
+	timesEaten++;
 
 	if ((timesEaten != 0) && (timesEaten % 3 == 0) && (state < 3)) {
 		state++;
