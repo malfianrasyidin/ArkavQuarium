@@ -14,7 +14,6 @@ void Snail::move(){
 	int move, idx;
 	double min, temp;
 	Coin *coin;
-	// int move = rand()%2;
 	LinkedList<Coin>* listcoin = getListCoin();
 
 	move = 0;
@@ -37,19 +36,20 @@ void Snail::move(){
 		// printf("%f %f, %f %f\n", getX(), getY(), coin->getX(), coin->getY());
 	}
 
-	if (move == 0){
-		this->setX(this->getX() + (rand() % 2 - 1));
-	} else {
+	if (move == 1){
 		if (coin->getX() < this->getX()){
-			this->setX(this->getX() - 0.5);
+			this->setX(this->getX() - 0.25);
+			draw_image("snaill.png" ,getX(), getY());
 		} else {
-			this->setX(this->getX() + 0.5);
+			this->setX(this->getX() + 0.25);
+			draw_image("snailr.png" ,getX(), getY());
 		}
 		if (this->isIntersect(*coin)){
 			this->grabCoin(*coin);
 		}
+		return;
 	}
-	draw_image("snail2.png" ,getX(), getY());
+	draw_image("snaill.png" ,getX(), getY());
 }
 
 //fungsi mengambil koin
