@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "AquariumObject.hpp"
-#include "./../oop.hpp"
 using namespace std;
 
 //Definisi kelas Coin
@@ -18,7 +17,9 @@ class Coin : public AquariumObject{
 		//fungsi memindahkan objek
 		void move();
 
+		//getter
 		int getValue() const;
+		double getRadius() const;
 
 		bool operator!=(const Coin&);
 
@@ -30,6 +31,7 @@ class Coin : public AquariumObject{
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
     	}
+    	constexpr static double radius = 25;
 
 };
 

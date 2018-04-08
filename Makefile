@@ -1,5 +1,5 @@
 # Masukkan semua file cpp Anda
-OBJS = main.cpp oop.cpp src/Coin.cpp src/AquariumObject.cpp
+OBJS = main.cpp oop.cpp src/*.cpp
 
 CC = g++
 COMPILER_FLAGS = -std=c++11 -Wall -O2

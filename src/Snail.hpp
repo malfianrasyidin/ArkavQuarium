@@ -3,22 +3,26 @@
 
 #include <iostream>
 #include "AquariumObject.hpp"
+#include "Coin.hpp"
 using namespace std;
 
 //Definisi kelas Snail
 class Snail : public AquariumObject {
 	public:
 		//ctor
-		Snail();
+		Snail(double, double);
 
 		//dtor
-		~Snail();
+		virtual ~Snail();
 
 		//fungsi memindahkan objek
 		void move();
 
 		//fungsi mengambil koin
-		void grabCoin();
+		void grabCoin(Coin&);
+
+		//getter
+		double getRadius() const;
 
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
@@ -28,6 +32,7 @@ class Snail : public AquariumObject {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
     	}
+    	constexpr static double radius = 30;
 };
 
 #endif

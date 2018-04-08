@@ -1,16 +1,31 @@
 #include "oop.hpp"
-#include "./src/Coin.hpp"
 #include <iostream>
 #include <math.h>
+#include <stdlib.h>
 #include <sstream>
 #include "./src/LinkedList.hpp"
 #include "./src/Node.hpp"
+#include "./src/Aquarium.hpp"
 
 const double speed = 50; // pixels per second
 
 int main( int argc, char* args[] )
 {
     init();
+
+    srand(time(0));
+
+    //inisialisasi Aquarium
+    Aquarium aquarium;
+    Coin::getListCoin() = &aquarium.getListCoin();
+    FishFood::getListFishFood() = &aquarium.getListFishFood();
+    Guppy::getListCoin() = &aquarium.getListCoin();
+    Guppy::getListGuppy() = &aquarium.getListGuppy();
+    Guppy::getListFishFood() = &aquarium.getListFishFood();
+    Piranha::getListCoin() = &aquarium.getListCoin();
+    Piranha::getListGuppy() = &aquarium.getListGuppy();
+    Piranha::getListPiranha() = &aquarium.getListPiranha();
+    Snail::getListCoin() = &aquarium.getListCoin();
 
     // Menghitung FPS
     int frames_passed = 0;
@@ -24,12 +39,6 @@ int main( int argc, char* args[] )
     bool running = true;
 
     double prevtime = time_since_start();
-
-    LinkedList<Coin> list_coin;
-
-    Coin::getListCoin() = &list_coin;
-
-    list_coin.add(new Coin(100,50,5));
 
     while (running) {
         double now = time_since_start();
@@ -87,13 +96,19 @@ int main( int argc, char* args[] )
             frames_passed = 0;
         }
 
+        if (aquarium.getListCoin().getCount() < 3){
+            aquarium.getListCoin().add(new Coin(rand()%640,20,rand() % 20));
+        }
+
         // Gambar ikan di posisi yang tepat.
         clear_screen();
         draw_text("Panah untuk bergerak, r untuk reset, x untuk keluar", 18, 10, 10, 0, 0, 0);
         draw_text(fps_text, 18, 10, 30, 0, 0, 0);
-        for (int j=0; j<list_coin.getCount(); j++){
-            list_coin.get(j).move();
+        for (int i=0; i<aquarium.getListCoin().getCount(); i++){
+            aquarium.getListCoin().get(i).move();
+            // printf("%d : %f %f\n", i, aquarium.getListCoin()->get(i).getX(), aquarium.getListCoin()->get(i).getY());
         }
+        aquarium.getSnail()->move();
         draw_image("ikan.png", cx, cy);
         update_screen();
     }
