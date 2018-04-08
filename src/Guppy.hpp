@@ -39,14 +39,19 @@ class Guppy : public Fish, public AquariumObject{
 
 		int getHunger();
 
+		int getState();
+
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<FishFood>* & getListFishFood();
 		static LinkedList<Guppy>* & getListGuppy();
 
+	protected:
+		double targetX, targetY;
+
 	private:
 		int hunger, state, timesEaten;
-		double lastDropTime, lastHungerTime, lastLoopTime;
+		double lastDropTime, lastHungerTime, lastLoopTime, lastMoveTime;
 
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
