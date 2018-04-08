@@ -67,11 +67,11 @@ void Piranha::move(){
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1280;
-			while (fabs(targetX-this->getX()) < 10){
+			while (fabs(targetX-this->getX()) < 20){
 				targetX = rand() % 1280;
 			}
 			targetY = rand() % 500;
-			while (fabs(targetY-this->getY()) < 10){
+			while (fabs(targetY-this->getY()) < 20){
 				targetY = rand() % 500;
 			}
 			lastMoveTime = time_since_start();

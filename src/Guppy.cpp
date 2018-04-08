@@ -13,7 +13,7 @@ Guppy::Guppy(){
 	targetFood = NULL;
 	lastDropTime = time_since_start();
 	lastHungerTime = time_since_start();
-  lastLoopTime = time_since_start();
+  	lastLoopTime = time_since_start();
 	lastMoveTime = time_since_start();
 	targetX = rand() % 1080;
 	targetY = (rand() % 550) + 120;
@@ -97,7 +97,7 @@ void Guppy::move(){
 		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
-		if (cos(angle) >= 0){
+		if (cos(angle) > 0){
 			fname << "r" << state << ".png";
 			draw_image(fname.str(), getX(), getY());
 		} else {
@@ -120,6 +120,7 @@ void Guppy::eat(){
 	targetFood = NULL;
 	hunger = MAX_HUNGER;
 	timesEaten++;
+
 	if ((timesEaten != 0) && (timesEaten % 3 == 0) && (state < 3)) {
 		state++;
 	}
