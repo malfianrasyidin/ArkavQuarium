@@ -1,36 +1,102 @@
 // file : Guppy.cpp
 
 #include "Guppy.hpp"
+#include <math.h>
+#include <exception>
 
 //ctor
 Guppy::Guppy(){
-
+	state = 1;
+	timesEaten = 0;
+	hunger = MAX_HUNGER;
+	targetFood = NULL;
+	lastDropTime = time_since_start();
+	lastHungerTime = time_since_start();
+	lastLoopTime = time_since_start();
+	this->setX(300);
+	this->setY(300);
 }
 
 //dtor
-Guppy::~Guppy(){
-
-}
+Guppy::~Guppy() {}
 
 //fungsi memindahkan objek
 void Guppy::move(){
 
+	//kurangi hunger
+	if (time_since_start() - lastHungerTime >= 1) {
+		hunger--;
+		lastHungerTime = time_since_start();
+	}
+
+	//drop coin
+	if (time_since_start() - lastDropTime >= DROP_TIME) {
+		dropCoin();
+	}
+
+	FishFood* tempFood = NULL;
+	//movement
+	if ((isHungry()) && (getListFishFood()->getCount() != 0)) {
+		LinkedList<FishFood>* listFishFood = getListFishFood();
+
+		int idx = 0;
+		double min = getDistance(listFishFood->get(0));
+
+		for (int i = 1; i < listFishFood->getCount(); i++) {
+			double temp = getDistance(listFishFood->get(i));
+			if (min > temp){
+				idx = i;
+				min = temp;
+			}
+		}
+
+		tempFood = &listFishFood->get(idx);
+	}
+	
+	if (tempFood != NULL) {
+		targetFood = tempFood;
+
+		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
+
+		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
+		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
+
+		if (isIntersect(*targetFood)) {
+			eat();
+		}
+	} 
+	
+	draw_image("ikan.png", getX(), getY());
+
+	lastLoopTime = time_since_start();
+	targetFood = NULL;
+
+	if (hunger <= 0) {
+		getListGuppy()->remove(*this);
+	}
 }
 
 //fungsi memakan FishFood
 void Guppy::eat(){
+	getListFishFood()->remove(*targetFood);
+	targetFood = NULL;
+	hunger = MAX_HUNGER;
 
+	if ((timesEaten != 0) && (timesEaten % 3 == 0) && (state < 3)) {
+		state++;
+	}
 }
 
 //fungsi drop coin
 void Guppy::dropCoin(){
-
+	getListCoin()->add(new Coin(getX(), getY(), COIN_DROP_VALUE * state));
+	lastDropTime = time_since_start();
 }
 
 //fungsi pengecekan hunger
 bool Guppy::isHungry(){
 	//not implemented yet
-	return true;
+	return (hunger <= HUNGER_TIME);
 }
 
 //getter
@@ -40,7 +106,11 @@ double Guppy::getRadius() const{
 
 bool Guppy::operator!=(const Guppy& guppy){
 	//not impelented yet
-	return true;
+	return !((this->getX() == guppy.getX()) && (this->getY() == guppy.getY()));
+}
+
+int Guppy::getHunger() {
+	return this->hunger;
 }
 
 //getter static list

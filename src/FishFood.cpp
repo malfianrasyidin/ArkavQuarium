@@ -7,15 +7,16 @@ FishFood::FishFood(double x, double y){
 }
 
 //dtor
-FishFood::~FishFood(){
-
-}
+FishFood::~FishFood() {}
 
 //fungsi memindahkan objek
 void FishFood::move(){
-	if (this->getY() >= 460){
-		
-	}
+	if (this->getY() <= 550){
+		this->setY(this->getY() + 0.05);
+	} else {
+		getListFishFood()->remove(*this);
+	}	
+	draw_image("food.png", getX(), getY());
 }
 
 //getter
@@ -24,7 +25,7 @@ double FishFood::getRadius() const{
 }
 
 bool FishFood::operator!=(const FishFood& fishfood){
-	return (this->getX() == fishfood.getX() && this->getY() == fishfood.getY());
+	return !(this->getX() == fishfood.getX() && this->getY() == fishfood.getY());
 }
 
 //getter static list
