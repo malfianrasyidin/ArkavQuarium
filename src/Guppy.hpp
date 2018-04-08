@@ -68,7 +68,7 @@ class Guppy : public Fish, public AquariumObject{
 
     	FishFood* targetFood;
 
-		const static int HUNGER_TIME = 50;
+		const static int HUNGER_TIME = 40;
 		const static int DROP_TIME = 15;
 		const static int MAX_HUNGER = 60;
 		const static int COIN_DROP_VALUE = 7;

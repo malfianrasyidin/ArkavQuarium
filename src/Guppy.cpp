@@ -83,11 +83,11 @@ void Guppy::move(){
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1080;
-			while (fabs(targetX-this->getX()) < 10){
+			while (fabs(targetX-this->getX()) < 200){
 				targetX = rand() % 1080;
 			}
 			targetY = (rand() % 500) + 120;
-			while (fabs(targetY-this->getY()) < 10){
+			while (fabs(targetY-this->getY()) < 200){
 				targetY = (rand() % 500) + 120;
 			}
 			lastMoveTime = time_since_start();

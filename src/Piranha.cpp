@@ -8,10 +8,10 @@ Piranha::Piranha(){
 	lastLoopTime = time_since_start();
 	lastHungerTime = time_since_start();
 	lastMoveTime = time_since_start();
-	targetX = rand() % 1280;
-	targetY = rand() % 550;
-	this->setX(rand() % 1280);
-	this->setY(rand() % 550);
+	targetX = rand() % 1080;
+	targetY = (rand() % 550) + 120;
+	this->setX(rand() % 1080);
+	this->setY((rand() % 550) + 120);
 }
 
 //dtor
@@ -51,8 +51,8 @@ void Piranha::move(){
 
 		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
 
-		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
-		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
+		this->setX(getX() + VELOCITY * (1.5) * cos(angle) * (time_since_start() - lastLoopTime));
+		this->setY(getY() + VELOCITY * (1.5) * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
 			draw_image("piranhar.png", getX(), getY());
@@ -67,11 +67,11 @@ void Piranha::move(){
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1280;
-			while (fabs(targetX-this->getX()) < 20){
+			while (fabs(targetX-this->getX()) < 200){
 				targetX = rand() % 1280;
 			}
 			targetY = rand() % 500;
-			while (fabs(targetY-this->getY()) < 20){
+			while (fabs(targetY-this->getY()) < 200){
 				targetY = rand() % 500;
 			}
 			lastMoveTime = time_since_start();
