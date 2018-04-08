@@ -1,6 +1,4 @@
 #include "Piranha.hpp"
-#include "Guppy.hpp"
-#include "Coin.hpp"
 
 //ctor
 Piranha::Piranha(){
