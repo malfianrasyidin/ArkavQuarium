@@ -122,6 +122,14 @@ bool Piranha::operator!=(const Piranha& piranha){
 	return !((this->getX() == piranha.getX()) && (this->getY() == piranha.getY()));
 }
 
+int Piranha::getHunger() {
+	return this->hunger;
+}
+
+void Piranha::setHunger(int hunger) {
+	this->hunger = hunger;
+}
+
 //getter static list
 LinkedList<Coin>* & Piranha::getListCoin(){
 	return getObjectListCoin();

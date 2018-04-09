@@ -38,8 +38,12 @@ class Guppy : public Fish, public AquariumObject{
 		bool operator!=(const Guppy&);
 
 		int getHunger();
-
 		int getState();
+		int getTimesEaten();
+
+		void setHunger(int);
+		void setState(int);
+		void setTimesEaten(int);
 
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();

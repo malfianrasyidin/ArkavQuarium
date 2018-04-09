@@ -156,6 +156,22 @@ int Guppy::getState() {
 	return this->state;
 }
 
+int Guppy::getTimesEaten() {
+	return this->timesEaten;
+}
+
+void Guppy::setHunger(int hunger) {
+	this->hunger = hunger;
+}
+
+void Guppy::setState(int state) {
+	this->state = state;
+}
+
+void Guppy::setTimesEaten(int timesEaten) {
+	this->timesEaten = timesEaten;
+}
+
 //getter static list
 LinkedList<Coin>* & Guppy::getListCoin(){
 	return getObjectListCoin();

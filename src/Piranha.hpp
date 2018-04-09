@@ -37,6 +37,9 @@ class Piranha : public Fish, public AquariumObject{
 
 		bool operator!=(const Piranha&);
 
+		int getHunger();
+		void setHunger(int);
+
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<Guppy>* & getListGuppy();
