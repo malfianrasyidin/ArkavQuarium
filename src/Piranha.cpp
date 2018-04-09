@@ -8,10 +8,10 @@ Piranha::Piranha(){
 	lastLoopTime = time_since_start();
 	lastHungerTime = time_since_start();
 	lastMoveTime = time_since_start();
-	targetX = rand() % 1280;
-	targetY = rand() % 550;
-	this->setX(rand() % 1280);
-	this->setY(rand() % 550);
+	targetX = rand() % 1080;
+	targetY = (rand() % 550) + 120;
+	this->setX(rand() % 1080);
+	this->setY((rand() % 550) + 120);
 }
 
 //dtor
@@ -51,13 +51,13 @@ void Piranha::move(){
 
 		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
 
-		this->setX(getX() + VELOCITY * cos(angle) * (time_since_start() - lastLoopTime));
-		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
+		this->setX(getX() + VELOCITY * (1.5) * cos(angle) * (time_since_start() - lastLoopTime));
+		this->setY(getY() + VELOCITY * (1.5) * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhar.png", getX(), getY());
 		} else {
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhal.png", getX(), getY());
 		}
 
 		if (isIntersect(*targetFood)) {
@@ -67,11 +67,11 @@ void Piranha::move(){
 		//random move
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1280;
-			while (fabs(targetX-this->getX()) < 10){
+			while (fabs(targetX-this->getX()) < 200){
 				targetX = rand() % 1280;
 			}
 			targetY = rand() % 500;
-			while (fabs(targetY-this->getY()) < 10){
+			while (fabs(targetY-this->getY()) < 200){
 				targetY = rand() % 500;
 			}
 			lastMoveTime = time_since_start();
@@ -82,9 +82,9 @@ void Piranha::move(){
 		this->setY(getY() + VELOCITY * sin(angle) * (time_since_start() - lastLoopTime));
 
 		if (cos(angle) >= 0){
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhar.png", getX(), getY());
 		} else {
-			draw_image("piranha.png", getX(), getY());
+			draw_image("piranhal.png", getX(), getY());
 		}
 	}
 
@@ -120,6 +120,14 @@ double Piranha::getRadius() const {
 
 bool Piranha::operator!=(const Piranha& piranha){
 	return !((this->getX() == piranha.getX()) && (this->getY() == piranha.getY()));
+}
+
+int Piranha::getHunger() {
+	return this->hunger;
+}
+
+void Piranha::setHunger(int hunger) {
+	this->hunger = hunger;
 }
 
 //getter static list

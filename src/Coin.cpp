@@ -4,6 +4,7 @@
 Coin::Coin(double x, double y, int val) : value(val) {
 	this->setX(x);
 	this->setY(y);
+	lastLoopTime = time_since_start();
 }
 
 //dtor
@@ -11,10 +12,11 @@ Coin::~Coin() {}
 
 //fungsi memindahkan objek
 void Coin::move() {
-	if (this->getY() <= 550){
-		this->setY(this->getY() + 0.5);
+	if (this->getY() <= 600){
+		this->setY(this->getY() + VELOCITY * (time_since_start() - lastLoopTime));
 	}
 	draw_image("coin.png" ,getX(), getY());
+	lastLoopTime = time_since_start();
 }
 
 

@@ -38,8 +38,12 @@ class Guppy : public Fish, public AquariumObject{
 		bool operator!=(const Guppy&);
 
 		int getHunger();
-
 		int getState();
+		int getTimesEaten();
+
+		void setHunger(int);
+		void setState(int);
+		void setTimesEaten(int);
 
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
@@ -68,10 +72,10 @@ class Guppy : public Fish, public AquariumObject{
 
     	FishFood* targetFood;
 
-		const static int HUNGER_TIME = 30;
+		const static int HUNGER_TIME = 40;
 		const static int DROP_TIME = 15;
 		const static int MAX_HUNGER = 60;
-		const static int COIN_DROP_VALUE = 5;
+		const static int COIN_DROP_VALUE = 7;
 		const static int VELOCITY = 50;
 
 		constexpr static double radius = 30;

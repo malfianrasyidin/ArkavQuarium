@@ -14,6 +14,7 @@ class AquariumObject {
 		virtual void move() = 0;
 
 		bool isIntersect(const AquariumObject&);
+		bool isIntersect(double, double, double);
 		double getDistance(const AquariumObject&);
 		
 		//getter

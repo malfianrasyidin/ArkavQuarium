@@ -37,6 +37,9 @@ class Piranha : public Fish, public AquariumObject{
 
 		bool operator!=(const Piranha&);
 
+		int getHunger();
+		void setHunger(int);
+
 		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<Guppy>* & getListGuppy();
@@ -67,7 +70,7 @@ class Piranha : public Fish, public AquariumObject{
 		const static int HUNGER_TIME = 30;
 		const static int MAX_HUNGER = 60;
 		const static int VELOCITY = 50;
-		const static int GUPPY_PRICE = 10;
+		const static int GUPPY_PRICE = 15;
 
 		constexpr static double radius = 40;
 };
