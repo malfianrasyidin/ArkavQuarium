@@ -1,3 +1,4 @@
+/// Implementasi Kelas AquariumObject
 #include "AquariumObject.hpp"
 
 bool AquariumObject::isIntersect(const AquariumObject& ao){

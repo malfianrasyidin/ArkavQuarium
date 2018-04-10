@@ -1,3 +1,4 @@
+/// Implementasi Kelas Coin
 #include "Coin.hpp"
 
 Coin::Coin(double x, double y, int val) : value(val) {
