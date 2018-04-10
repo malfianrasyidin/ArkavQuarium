@@ -20,6 +20,7 @@ SDL_Window* sdlWindow;
 std::map<std::string, SDL_Surface*> loadedSurfaces;
 std::map<int, TTF_Font*> loadedFontSizes;
 SDL_Surface* gScreenSurface = NULL;
+Mix_Music *music = NULL;
 
 bool init()
 {
@@ -38,6 +39,7 @@ bool init()
             success = false;
         }
         sdlWindow = SDL_CreateWindow( "ArkavQuarium", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+
         if( sdlWindow == NULL )
         {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -46,6 +48,18 @@ bool init()
         else
         {
             gScreenSurface = SDL_GetWindowSurface( sdlWindow );
+        }
+
+        if (Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1) { 
+            return false; 
+        } else {
+            music = Mix_LoadMUS("bgm.wav"); 
+
+            if (music == NULL) { 
+                return false; 
+            } else {
+                Mix_PlayMusic(music, -1);
+            }
         }
     }
 
@@ -63,6 +77,10 @@ void close()
     {
         TTF_CloseFont( x.second );
     }
+
+    Mix_FreeMusic(music);
+
+    Mix_CloseAudio();
 
     SDL_DestroyWindow( sdlWindow );
     sdlWindow = NULL;
