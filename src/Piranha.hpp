@@ -22,7 +22,7 @@ class Piranha : public Fish, public AquariumObject{
 		/// Default ctor
 		Piranha();
 
-		// Default dtor
+		/// Default dtor
 		virtual ~Piranha();
 
 		/**

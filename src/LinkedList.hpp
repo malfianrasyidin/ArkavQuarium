@@ -20,7 +20,7 @@ class LinkedList{
 			this->first = NULL;
 		}
 		
-		//Default dtor
+		/// Default dtor
 		~LinkedList() {
 			while (!isEmpty()) {
 				remove((*first).getData());
