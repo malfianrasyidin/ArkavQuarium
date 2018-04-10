@@ -1,0 +1,92 @@
+\hypertarget{class_linked_list}{}\section{Linked\+List$<$ T $>$ Class Template Reference}
+\label{class_linked_list}\index{Linked\+List$<$ T $>$@{Linked\+List$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Linked\+List.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_linked_list_a3c20fcfec867e867f541061a09fc640c}\label{class_linked_list_a3c20fcfec867e867f541061a09fc640c}} 
+\mbox{\hyperlink{class_linked_list_a3c20fcfec867e867f541061a09fc640c}{Linked\+List}} ()
+\begin{DoxyCompactList}\small\item\em Default ctor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7}\label{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7}} 
+\mbox{\hyperlink{class_linked_list_a7c37609df3b83bc4eb0281b852f93fd7}{$\sim$\+Linked\+List}} ()
+\begin{DoxyCompactList}\small\item\em Default dtor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_linked_list_a881eb35646625db85ea669cf80681f8f}{find}} (T \&val)
+\item 
+bool \mbox{\hyperlink{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}{is\+Empty}} ()
+\item 
+void \mbox{\hyperlink{class_linked_list_acf312b61f5d68eac9d4a08c70dbb7276}{add}} (T $\ast$val)
+\item 
+void \mbox{\hyperlink{class_linked_list_a72cee7f68addc8190e5be9eeb966687c}{remove}} (T \&node)
+\item 
+\mbox{\Hypertarget{class_linked_list_ae4026fe9959891270961b33535eb2d36}\label{class_linked_list_ae4026fe9959891270961b33535eb2d36}} 
+T \& \mbox{\hyperlink{class_linked_list_ae4026fe9959891270961b33535eb2d36}{get}} (int idx)
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_linked_list_ae348947abcce7b58ebdaf94714a5c21c}\label{class_linked_list_ae348947abcce7b58ebdaf94714a5c21c}} 
+int {\bfseries get\+Count} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Linked\+List$<$ T $>$}
+
+Definisi Kelas Template \mbox{\hyperlink{class_linked_list}{Linked\+List}} Fungsi\+: Kelas ini merupakan template class, yang dapat menyimpan objek-\/objek lain Kelas ini digunakan untuk menyimpan semua objek-\/objek yang setipe yang ada dalam permainan 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_linked_list_acf312b61f5d68eac9d4a08c70dbb7276}\label{class_linked_list_acf312b61f5d68eac9d4a08c70dbb7276}} 
+\index{Linked\+List@{Linked\+List}!add@{add}}
+\index{add@{add}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{T $\ast$}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T$\ast$} & Menambahkan \mbox{\hyperlink{class_node}{Node}} T$\ast$ ke dalam \mbox{\hyperlink{class_linked_list}{Linked\+List}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_linked_list_a881eb35646625db85ea669cf80681f8f}\label{class_linked_list_a881eb35646625db85ea669cf80681f8f}} 
+\index{Linked\+List@{Linked\+List}!find@{find}}
+\index{find@{find}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{find()}{find()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+int \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{T \&}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\&} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indeks dalam integer Fungsi ini akan mengembalikan nilai indeks dari \mbox{\hyperlink{class_linked_list}{Linked\+List}} yang terdapat T 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}\label{class_linked_list_a7ecbb28e82117a680839ed0dc28ebdce}} 
+\index{Linked\+List@{Linked\+List}!is\+Empty@{is\+Empty}}
+\index{is\+Empty@{is\+Empty}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{is\+Empty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+T\+R\+UE jika \mbox{\hyperlink{class_linked_list}{Linked\+List}} kosong, F\+A\+L\+SE jika sebaliknya 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_linked_list_a72cee7f68addc8190e5be9eeb966687c}\label{class_linked_list_a72cee7f68addc8190e5be9eeb966687c}} 
+\index{Linked\+List@{Linked\+List}!remove@{remove}}
+\index{remove@{remove}!Linked\+List@{Linked\+List}}
+\subsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{T \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em T\&} & Menghapus \mbox{\hyperlink{class_node}{Node}} T dari \mbox{\hyperlink{class_linked_list}{Linked\+List}} \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Linked\+List.\+hpp\end{DoxyCompactItemize}

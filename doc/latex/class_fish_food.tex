@@ -1,0 +1,101 @@
+\hypertarget{class_fish_food}{}\section{Fish\+Food Class Reference}
+\label{class_fish_food}\index{Fish\+Food@{Fish\+Food}}
+
+
+{\ttfamily \#include $<$Fish\+Food.\+hpp$>$}
+
+
+
+Inheritance diagram for Fish\+Food\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_fish_food__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Fish\+Food\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_fish_food__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_fish_food_a3e2ae5b4b6c889595605f66bb9974b98}{Fish\+Food}} (double, double)
+\begin{DoxyCompactList}\small\item\em Implementasi Kelas \mbox{\hyperlink{class_fish_food}{Fish\+Food}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_fish_food_aeb0af173d92cc5c4b93ee1cdd6087c37}\label{class_fish_food_aeb0af173d92cc5c4b93ee1cdd6087c37}} 
+virtual \mbox{\hyperlink{class_fish_food_aeb0af173d92cc5c4b93ee1cdd6087c37}{$\sim$\+Fish\+Food}} ()
+\begin{DoxyCompactList}\small\item\em Default dtor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_fish_food_a411070d0e4f5c964ff34ca17fca0ec05}{move}} ()
+\item 
+\mbox{\Hypertarget{class_fish_food_a3372273ff7ef310359eb1a4146fd4ee7}\label{class_fish_food_a3372273ff7ef310359eb1a4146fd4ee7}} 
+double \mbox{\hyperlink{class_fish_food_a3372273ff7ef310359eb1a4146fd4ee7}{get\+Radius}} () const
+\begin{DoxyCompactList}\small\item\em Default dtor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_fish_food_a3df73ecdd9d67d9a29f352e48ed74123}{operator!=}} (const \mbox{\hyperlink{class_fish_food}{Fish\+Food}} \&)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_fish_food_a75406da59c7dc6e441b389717c966567}\label{class_fish_food_a75406da59c7dc6e441b389717c966567}} 
+static \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_fish_food}{Fish\+Food}} $>$ $\ast$\& \mbox{\hyperlink{class_fish_food_a75406da59c7dc6e441b389717c966567}{get\+List\+Fish\+Food}} ()
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definisi Kelas \mbox{\hyperlink{class_fish_food}{Fish\+Food}} Fungsi\+: Kelas ini digunakan sebagai instance dari makanan \mbox{\hyperlink{class_guppy}{Guppy}} \mbox{\hyperlink{class_fish_food}{Fish\+Food}} dibuat dengan cara pembelian dengan uang yang dimiliki oleh pemain 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fish_food_a3e2ae5b4b6c889595605f66bb9974b98}\label{class_fish_food_a3e2ae5b4b6c889595605f66bb9974b98}} 
+\index{Fish\+Food@{Fish\+Food}!Fish\+Food@{Fish\+Food}}
+\index{Fish\+Food@{Fish\+Food}!Fish\+Food@{Fish\+Food}}
+\subsubsection{\texorpdfstring{Fish\+Food()}{FishFood()}}
+{\footnotesize\ttfamily Fish\+Food\+::\+Fish\+Food (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Implementasi Kelas \mbox{\hyperlink{class_fish_food}{Fish\+Food}}. 
+
+User defined ctor 
+\begin{DoxyParams}{Parameters}
+{\em posisi} & x dan posisi y \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fish_food_a411070d0e4f5c964ff34ca17fca0ec05}\label{class_fish_food_a411070d0e4f5c964ff34ca17fca0ec05}} 
+\index{Fish\+Food@{Fish\+Food}!move@{move}}
+\index{move@{move}!Fish\+Food@{Fish\+Food}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Fish\+Food\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\hyperlink{class_fish_food}{Fish\+Food}} bergerak jatuh bebas dengan kecepatan semakin bertambah Jika \mbox{\hyperlink{class_fish_food}{Fish\+Food}} telah sampai ke dasar, maka objek tersebut dihapus 
+
+Implements \mbox{\hyperlink{class_aquarium_object_a42c4de640f89ac8aebc26b7618578575}{Aquarium\+Object}}.
+
+\mbox{\Hypertarget{class_fish_food_a3df73ecdd9d67d9a29f352e48ed74123}\label{class_fish_food_a3df73ecdd9d67d9a29f352e48ed74123}} 
+\index{Fish\+Food@{Fish\+Food}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Fish\+Food@{Fish\+Food}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Fish\+Food\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_fish_food}{Fish\+Food}} \&}]{fishfood }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em objek} & \mbox{\hyperlink{class_fish_food}{Fish\+Food}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE jika kedua \mbox{\hyperlink{class_fish_food}{Fish\+Food}} yang dibandingkan bukan objek yang sama, F\+A\+L\+SE jika tidak Membandingkan kedua \mbox{\hyperlink{class_fish_food}{Fish\+Food}} berdasarkan kesamaan posisi x dan posisi y 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Fish\+Food.\+hpp\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Fish\+Food.\+cpp\end{DoxyCompactItemize}

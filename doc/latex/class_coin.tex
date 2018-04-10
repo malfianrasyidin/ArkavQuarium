@@ -1,0 +1,104 @@
+\hypertarget{class_coin}{}\section{Coin Class Reference}
+\label{class_coin}\index{Coin@{Coin}}
+
+
+{\ttfamily \#include $<$Coin.\+hpp$>$}
+
+
+
+Inheritance diagram for Coin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_coin__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Coin\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_coin__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_coin_af43cdebaaa8fa44389197213e4340f0d}{Coin}} (double, double, int)
+\begin{DoxyCompactList}\small\item\em Implementasi Kelas \mbox{\hyperlink{class_coin}{Coin}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_coin_ad0371a6d98c194a0f6de615206829b16}\label{class_coin_ad0371a6d98c194a0f6de615206829b16}} 
+virtual \mbox{\hyperlink{class_coin_ad0371a6d98c194a0f6de615206829b16}{$\sim$\+Coin}} ()
+\begin{DoxyCompactList}\small\item\em Default dtor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_coin_ab62bca5834489b9b483deaa3ca3470e9}{move}} ()
+\item 
+\mbox{\Hypertarget{class_coin_a53c8bf65afdde1422cfda51d753d74b7}\label{class_coin_a53c8bf65afdde1422cfda51d753d74b7}} 
+int \mbox{\hyperlink{class_coin_a53c8bf65afdde1422cfda51d753d74b7}{get\+Value}} () const
+\begin{DoxyCompactList}\small\item\em Default getter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_coin_a498c92e5fe33000f3ab6ba583e538c91}\label{class_coin_a498c92e5fe33000f3ab6ba583e538c91}} 
+double {\bfseries get\+Radius} () const
+\item 
+bool \mbox{\hyperlink{class_coin_a551d7fe1d719474f0e4cbf5930d09a78}{operator!=}} (const \mbox{\hyperlink{class_coin}{Coin}} \&)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_coin_a4c410d6d841379928cd5784fd910354e}\label{class_coin_a4c410d6d841379928cd5784fd910354e}} 
+static \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_coin}{Coin}} $>$ $\ast$\& {\bfseries get\+List\+Coin} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definisi Kelas \mbox{\hyperlink{class_coin}{Coin}} Fungsi\+: Koin merupakan kelas turunan dari \mbox{\hyperlink{class_aquarium_object}{Aquarium\+Object}} Kelas ini dihasilkan oleh instance dari \mbox{\hyperlink{class_fish}{Fish}}, dan mempunyai nilai tertentu Nilai-\/nilai tersebut nantinya digunakan untuk menambah uang untuk pemain selama permainan 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_coin_af43cdebaaa8fa44389197213e4340f0d}\label{class_coin_af43cdebaaa8fa44389197213e4340f0d}} 
+\index{Coin@{Coin}!Coin@{Coin}}
+\index{Coin@{Coin}!Coin@{Coin}}
+\subsubsection{\texorpdfstring{Coin()}{Coin()}}
+{\footnotesize\ttfamily Coin\+::\+Coin (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+Implementasi Kelas \mbox{\hyperlink{class_coin}{Coin}}. 
+
+User defined ctor 
+\begin{DoxyParams}{Parameters}
+{\em posisi} & x, posisi y, dan nilai dari koin \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_coin_ab62bca5834489b9b483deaa3ca3470e9}\label{class_coin_ab62bca5834489b9b483deaa3ca3470e9}} 
+\index{Coin@{Coin}!move@{move}}
+\index{move@{move}!Coin@{Coin}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Coin\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Koin bergerak lurus jatuh bebas, dengan kecepatan semakin dipercepat Koin yang dihasilkan \mbox{\hyperlink{class_guppy}{Guppy}} dan \mbox{\hyperlink{class_piranha}{Piranha}} berbeda gambar dan nilai 
+
+Implements \mbox{\hyperlink{class_aquarium_object_a42c4de640f89ac8aebc26b7618578575}{Aquarium\+Object}}.
+
+\mbox{\Hypertarget{class_coin_a551d7fe1d719474f0e4cbf5930d09a78}\label{class_coin_a551d7fe1d719474f0e4cbf5930d09a78}} 
+\index{Coin@{Coin}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Coin@{Coin}}
+\subsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Coin\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_coin}{Coin}} \&}]{coin }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em objek} & \mbox{\hyperlink{class_coin}{Coin}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE jika kedua koin yang dibandingkan bukan objek yang sama, F\+A\+L\+SE jika tidak Membandingkan kedua koin berdasarkan kesamaan nilai, posisi x, dan posisi y 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Coin.\+hpp\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Coin.\+cpp\end{DoxyCompactItemize}

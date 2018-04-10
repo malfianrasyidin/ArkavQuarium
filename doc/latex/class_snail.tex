@@ -1,0 +1,96 @@
+\hypertarget{class_snail}{}\section{Snail Class Reference}
+\label{class_snail}\index{Snail@{Snail}}
+
+
+{\ttfamily \#include $<$Snail.\+hpp$>$}
+
+
+
+Inheritance diagram for Snail\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_snail__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Snail\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{class_snail__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_snail_a8a24e3446fddbfbbd064c5ee9337fa90}{Snail}} (double, double)
+\begin{DoxyCompactList}\small\item\em Implementasi Kelas \mbox{\hyperlink{class_snail}{Snail}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_snail_a63165ec180dabd0c3735b51b9812c7a7}\label{class_snail_a63165ec180dabd0c3735b51b9812c7a7}} 
+virtual \mbox{\hyperlink{class_snail_a63165ec180dabd0c3735b51b9812c7a7}{$\sim$\+Snail}} ()
+\begin{DoxyCompactList}\small\item\em Default dtor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_snail_af5892ec122d9199480c813b74488256b}{move}} ()
+\item 
+void \mbox{\hyperlink{class_snail_a5978e47ea4eeb7dce4890d1d8121de7e}{grab\+Coin}} (\mbox{\hyperlink{class_coin}{Coin}} \&)
+\item 
+\mbox{\Hypertarget{class_snail_a90b7b428761619d40e3b33832806d80c}\label{class_snail_a90b7b428761619d40e3b33832806d80c}} 
+double \mbox{\hyperlink{class_snail_a90b7b428761619d40e3b33832806d80c}{get\+Radius}} () const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_snail_a3accad14fc8c7b2aa86ac1af9ec46b54}\label{class_snail_a3accad14fc8c7b2aa86ac1af9ec46b54}} 
+void \mbox{\hyperlink{class_snail_a3accad14fc8c7b2aa86ac1af9ec46b54}{set\+Money}} (int $\ast$)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_snail_acbcfdcc579e201934fd331b9c3a9e76f}\label{class_snail_acbcfdcc579e201934fd331b9c3a9e76f}} 
+static \mbox{\hyperlink{class_linked_list}{Linked\+List}}$<$ \mbox{\hyperlink{class_coin}{Coin}} $>$ $\ast$\& {\bfseries get\+List\+Coin} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definisi Kelas \mbox{\hyperlink{class_snail}{Snail}} Fungsi\+: Kelas ini merupakan instance dari \mbox{\hyperlink{class_snail}{Snail}} 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_snail_a8a24e3446fddbfbbd064c5ee9337fa90}\label{class_snail_a8a24e3446fddbfbbd064c5ee9337fa90}} 
+\index{Snail@{Snail}!Snail@{Snail}}
+\index{Snail@{Snail}!Snail@{Snail}}
+\subsubsection{\texorpdfstring{Snail()}{Snail()}}
+{\footnotesize\ttfamily Snail\+::\+Snail (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+Implementasi Kelas \mbox{\hyperlink{class_snail}{Snail}}. 
+
+User defined ctor 
+\begin{DoxyParams}{Parameters}
+{\em posisi} & x dan posisi y \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_snail_a5978e47ea4eeb7dce4890d1d8121de7e}\label{class_snail_a5978e47ea4eeb7dce4890d1d8121de7e}} 
+\index{Snail@{Snail}!grab\+Coin@{grab\+Coin}}
+\index{grab\+Coin@{grab\+Coin}!Snail@{Snail}}
+\subsubsection{\texorpdfstring{grab\+Coin()}{grabCoin()}}
+{\footnotesize\ttfamily void Snail\+::grab\+Coin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_coin}{Coin}} \&}]{coin }\end{DoxyParamCaption})}
+
+Fungsi ini melakukan hal berikut\+: Menghapus objek koin yang telah diambil Menambah nilai uang berdasarkan nilai koin yang diambil tersebut \mbox{\Hypertarget{class_snail_af5892ec122d9199480c813b74488256b}\label{class_snail_af5892ec122d9199480c813b74488256b}} 
+\index{Snail@{Snail}!move@{move}}
+\index{move@{move}!Snail@{Snail}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Snail\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Fungsi ini melakukan hal berikut\+: Jika tidak terdapat koin, \mbox{\hyperlink{class_snail}{Snail}} akan diam pada tempatnya Jika terdapat koin, maka \mbox{\hyperlink{class_snail}{Snail}} akan bergerak ke koin terdekat 
+
+Implements \mbox{\hyperlink{class_aquarium_object_a42c4de640f89ac8aebc26b7618578575}{Aquarium\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Snail.\+hpp\item 
+/media/malfianrasyidin/\+A\+L\+F\+I\+A\+N/c++/\+Arkav\+Quarium/src/Snail.\+cpp\end{DoxyCompactItemize}
