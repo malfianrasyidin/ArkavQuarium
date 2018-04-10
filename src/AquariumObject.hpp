@@ -8,7 +8,7 @@
 using namespace std;
 
 /**
- * Defisini Kelas Abstrak AquariumObject
+ * Definisi Kelas Abstrak AquariumObject
  * Fungsi:
  * Kelas ini bersifat abstraksi dari kelas-kelas akuarium lainnya,
  * seperti Guppy, Piranha, Snail, FishFood, dan lainnya.
