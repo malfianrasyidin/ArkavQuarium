@@ -10,16 +10,19 @@
 #include "LinkedList.hpp"
 using namespace std;
 
-//Definisi kelas Aquarium
+/**
+ * Definisi kelas Aquarium
+ * Fungsi: 
+ */
 class Aquarium{
 	public:
-		//ctor
+		/// Default ctor
 		Aquarium();
 		
-		//dtor
+		/// Default dtor
 		~Aquarium();
 
-		//getter
+		/// Getter
 		LinkedList<Guppy>& getListGuppy();
 		LinkedList<Piranha>& getListPiranha();
 		LinkedList<FishFood>& getListFishFood();
@@ -27,12 +30,13 @@ class Aquarium{
 		Snail* getSnail();
 
 	private:
+		/// Daftar atribut AquariumObject yang disimpan di LinkedList
 		LinkedList<Guppy> list_guppy;
 		LinkedList<Piranha> list_piranha;
 		LinkedList<FishFood> list_fish_food;
 		LinkedList<Coin> list_coin;
+		/// Atribut Snail yang hanya berjumlah satu dalam satu aquarium
 		Snail* snail;
-
 };
 
 #endif

@@ -8,36 +8,56 @@
 
 using namespace std;
 
-//Definisi kelas Coin
+/**
+ * Definisi Kelas Coin
+ * Fungsi:
+ * 
+ */
 class Coin : public AquariumObject{
 	public:
-		//ctor
+		/**
+		 * User defined ctor
+		 * @param posisi x, posisi y, dan nilai dari koin
+		 */
 		Coin(double, double, int);
 
-		//dtor
+		/// Default dtor
 		virtual ~Coin();
 
-		//fungsi memindahkan objek
+		/**
+		 * @Override
+		 * Koin bergerak lurus jatuh bebas, dengan kecepatan semakin dipercepat
+		 * Koin yang dihasilkan Guppy dan Piranha berbeda gambar dan nilai
+		 */
 		void move();
 
-		//getter
+		/// Default getter
 		int getValue() const;
 		double getRadius() const;
+		static LinkedList<Coin> *&getListCoin();
 
+		/**
+		 * @Override
+		 * @param objek Coin
+		 * @return TRUE jika kedua koin yang dibandingkan bukan objek yang sama, FALSE jika tidak
+		 * Membandingkan kedua koin berdasarkan kesamaan nilai, posisi x, dan posisi y
+		 */
 		bool operator!=(const Coin&);
-
-		static LinkedList<Coin>* & getListCoin();
-
+		
   	private:
+	  	/// lastLoopTime adalah waktu terakhir koin mengalami penambahan kecepatan
   		double lastLoopTime;
+		/// value adalah nilai/harga dari koin
 		const int value;
+		/// atribut yang berisikan seluruh objek-objek koin yang ada disimpan sebagai LinkedList
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
     	}
+		/// VELOCITY merupakan nilai konstanta penambahan kecepatan
     	const static int VELOCITY = 25;
+		/// radius merupakan nilai jari-jari dari koin
     	constexpr static double radius = 25;
-
 };
 
 #endif

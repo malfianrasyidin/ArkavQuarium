@@ -1,5 +1,3 @@
-// Implementation of AquariumObject.hpp
-
 #include "AquariumObject.hpp"
 
 bool AquariumObject::isIntersect(const AquariumObject& ao){
@@ -20,7 +18,6 @@ double AquariumObject::getDistance(const AquariumObject& ao){
     return x*x+y*y;
 }
 
-// setter and getter
 double AquariumObject::getX() const {
 	return this->x;
 }
@@ -29,7 +26,6 @@ double AquariumObject::getY() const {
 	return this->y;
 }
 
-//setter
 void AquariumObject::setX(double x) {
 	this->x = x;
 }
