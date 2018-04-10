@@ -7,7 +7,7 @@ using namespace std;
 /**
  * Definisi Kelas Abstrak Fish
  * Fungsi:
- * 
+ * Kelas abstrak ini digunakan oleh kelas turunannya yaitu Guppy dan Piranha
  */
 class Fish {
 	public:

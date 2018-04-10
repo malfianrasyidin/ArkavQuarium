@@ -11,6 +11,8 @@ using namespace std;
 /**
  * Definisi Kelas FishFood
  * Fungsi:
+ * Kelas ini digunakan sebagai instance dari makanan Guppy
+ * FishFood dibuat dengan cara pembelian dengan uang yang dimiliki oleh pemain
  */
 class FishFood : public AquariumObject{
 	public:

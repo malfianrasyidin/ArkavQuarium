@@ -1,16 +1,14 @@
+/// Implementasi Kelas Snail
 #include "Snail.hpp"
 
-//ctor
 Snail::Snail(double x, double y){
 	this->setX(x);
 	this->setY(y);
 	lastLoopTime = time_since_start();
 }
 
-//dtor
 Snail::~Snail() {}
 
-//fungsi memindahkan objek
 void Snail::move(){
 	int move, idx;
 	double min, temp;
@@ -53,23 +51,19 @@ void Snail::move(){
 	lastLoopTime = time_since_start();
 }
 
-//fungsi mengambil koin
 void Snail::grabCoin(Coin& coin){
 	*money += coin.getValue();
 	getListCoin()->remove(coin);
 }
 
-//getter
 double Snail::getRadius() const{
 	return this->radius;
 }
 
-//getter static list
 LinkedList<Coin>* & Snail::getListCoin(){
 	return getObjectListCoin();
 }
 
-//setter
 void Snail::setMoney(int* money) {
 	this->money = money;
 }

@@ -11,7 +11,9 @@ using namespace std;
 /**
  * Definisi Kelas Coin
  * Fungsi:
- * 
+ * Koin merupakan kelas turunan dari AquariumObject
+ * Kelas ini dihasilkan oleh instance dari Fish, dan mempunyai nilai tertentu
+ * Nilai-nilai tersebut nantinya digunakan untuk menambah uang untuk pemain selama permainan
  */
 class Coin : public AquariumObject{
 	public:

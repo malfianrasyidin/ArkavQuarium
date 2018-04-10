@@ -2,17 +2,22 @@
 #define AQUARIUM_HPP
 
 #include <iostream>
+
 #include "Guppy.hpp"
 #include "Snail.hpp"
 #include "Piranha.hpp"
 #include "FishFood.hpp"
 #include "Coin.hpp"
 #include "LinkedList.hpp"
+
 using namespace std;
 
 /**
  * Definisi kelas Aquarium
  * Fungsi: 
+ * Kelas ini akan berisi semua AquariumObject.
+ * Kelas ini dibutuhkan agar saat program dijalankan,
+ * hanya akan terdapat satu instance dari kelas Aquarium
  */
 class Aquarium{
 	public:

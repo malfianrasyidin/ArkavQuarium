@@ -8,9 +8,10 @@
 using namespace std;
 
 /**
- * Defisini Abract Class AquariumObject
+ * Defisini Kelas Abstrak AquariumObject
  * Fungsi:
- * 
+ * Kelas ini bersifat abstraksi dari kelas-kelas akuarium lainnya,
+ * seperti Guppy, Piranha, Snail, FishFood, dan lainnya.
  */
 class AquariumObject {
 	public:

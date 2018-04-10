@@ -4,21 +4,26 @@
 #include <iostream>
 using namespace std;
 
-//Definisi kelas Node
+/**
+ * Definisi Kelas Template Node
+ * Fungsi:
+ * Kelas ini digunakan untuk menyimpan informasi
+ * data dari objek-objek dalam LinkedList
+ */
 template <class T>
 class Node{
 	public:
-		//ctor
+		/// User defined ctor
 		Node(T* data){
 			this->data = data;
 		}
 
-		//dtor
+		/// Default dtor
 		~Node(){
 			delete this->data;
 		}
 
-		//getter
+		/// Getter
 		T& getData() {
 			return (*data);
 		}
@@ -26,13 +31,15 @@ class Node{
 			return this->next;
 		}
 
-		//setter
+		/// Setter
 		void setNext(Node<T>* next){
 			this->next = next;
 		}
 
 	private:
+		/// Atribut yang menyimpan data Node
 		T* data;
+		/// Atribut yang menyimpan alamat Node berikutnya
 		Node<T>* next;
 };
 

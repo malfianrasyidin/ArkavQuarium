@@ -9,41 +9,55 @@
 
 using namespace std;
 
-//Definisi kelas Snail
+/**
+ * Definisi Kelas Snail
+ * Fungsi:
+ * Kelas ini merupakan instance dari Snail
+ */
 class Snail : public AquariumObject {
 	public:
-		//ctor
+		/**
+		 * User defined ctor
+		 * @param posisi x dan posisi y
+		 */
 		Snail(double, double);
 
-		//dtor
+		/// Default dtor
 		virtual ~Snail();
 
-		//fungsi memindahkan objek
+		/**
+		 * @Override
+		 * Fungsi ini melakukan hal berikut:
+		 * Jika tidak terdapat koin, Snail akan diam pada tempatnya
+		 * Jika terdapat koin, maka Snail akan bergerak ke koin terdekat
+		 */
 		void move();
 
-		//fungsi mengambil koin
+		/**
+		 * Fungsi ini melakukan hal berikut:
+		 * Menghapus objek koin yang telah diambil
+		 * Menambah nilai uang berdasarkan nilai koin yang diambil tersebut
+		 */
 		void grabCoin(Coin&);
 
-		//getter
+		/// Getter
 		double getRadius() const;
-
-		//getter static list
 		static LinkedList<Coin>* & getListCoin();
 
-		//setter money
+		/// Setter
 		void setMoney(int*);
 		
 	private:
+		/// Daftar atribut
 		double lastLoopTime;
 		int* money;
-
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
     	}
 
+		/// Daftar atribut konstanta
     	const static int VELOCITY = 50;
-
     	constexpr static double radius = 30;
 };
 
