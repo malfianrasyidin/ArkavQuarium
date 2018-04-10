@@ -49,15 +49,16 @@ class Coin : public AquariumObject{
   		double lastLoopTime;
 		/// value adalah nilai/harga dari koin
 		const int value;
-		/// atribut yang berisikan seluruh objek-objek koin yang ada disimpan sebagai LinkedList
-		static LinkedList<Coin>* & getObjectListCoin() {
-	        static LinkedList<Coin>* list_coin;
-	        return list_coin;
-    	}
 		/// VELOCITY merupakan nilai konstanta penambahan kecepatan
     	const static int VELOCITY = 25;
 		/// radius merupakan nilai jari-jari dari koin
     	constexpr static double radius = 25;
+		/// atribut yang berisikan seluruh objek-objek koin yang ada disimpan sebagai LinkedList
+		static LinkedList<Coin> *&getObjectListCoin()
+		{
+			static LinkedList<Coin> *list_coin;
+			return list_coin;
+		}
 };
 
 #endif
