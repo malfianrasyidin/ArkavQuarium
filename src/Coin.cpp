@@ -15,7 +15,11 @@ void Coin::move() {
 	if (this->getY() <= 600){
 		this->setY(this->getY() + VELOCITY * (time_since_start() - lastLoopTime));
 	}
-	draw_image("coin.png" ,getX(), getY());
+	if (getValue() < 20) {
+		draw_image("coin.png" ,getX(), getY());
+	} else {
+		draw_image("diamond.png", getX(), getY());
+	}
 	lastLoopTime = time_since_start();
 }
 
