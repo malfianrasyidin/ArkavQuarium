@@ -1,52 +1,35 @@
-TUGAS KECIL OOP - K02D
+TUGAS BESAR 1 OOP - K02D
 	13516014 - Renjira Naufhal Dhiaegana
 	13516035 - Muhammad Sulthan Adhipradhana
 	13516074 - Muhammad Abdullah Munir
 	13516104 - Muhammad Alfian Rasyidin
 
-PENJELASAN TUGAS
-1. Kelas Aquarium
-- Kelas ini berisikan LinkedList dari objek-objek Aquarium tersebut.
-- Nilai maksimum X dan Y juga didefinisikan di kelas ini.
+CARA MENJALANKAN PROGRAM
+	1. Buka terminal pada folder utama program
+	2. Ketik make, dan klik Enter
+	3. Setelah program berhasil dikompilasi, ketik ./oopquarium dan klik Enter
 
-2. Kelas AquariumObject
-- Kelas ini merupakan kelas abstrak dari seluruh objek yang berada di dalam aquarium. 
-- Method-method bawaan dari setiap objek di dalam aquarium yang sama juga didefinisikan di dalam kelas ini.
-- Method move() akan dilakukan overwrite oleh kelas-kelas turunannya nanti.
+HAL-HAL YANG HARUS DIPERHATIKAN
+	Untuk dapat menjalankan program yang menggunakan *library* ini, diperlukan
+	instalasi tiga *library*, yaitu:
 
-3. Kelas Coin
-- Kelas ini merupakan kelas turunan dari kelas AquariumObject.
-- Kelas ini didefinisikan sebagai kelas objek dari koin sesuai yang dijelaskan di dalam spesifikasi.
+	- SDL2
+	- SDL2_Image
+	- SDL2_TTF
 
-4. Kelas Fish
-- Kelas ini merupakan kelas abstrak dari seluruh objek ikan yang berada di dalam aquarium.
-- Objek-objek Fish meliputi Guppy dan Piranha.
-- Method-method di kelas ini akan dilakukan overwrite oleh kelas-kelas turunannya nanti.
+	Pada Ubuntu, ketiga *library* tersebut dapat diinstall dengan perintah berikut:
+		apt-get install libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
 
-5. Kelas FishFood
-- Kelas ini merupakan kelas turunan dari kelas AquariumObject.
-- Kelas ini mempunyai method-method yang sesuai dengan spesifikasi tugas yang diberikan.
+	Pada Fedora, ketiga *library* tersebut dapat diinstall dengan perintah berikut:
+		yum install SDL2-devel SDL2_image-devel SDL2_ttf-devel
 
-6. Kelas Guppy
-- Kelas ini merupakan kelas turunan dari kelas AquariumObject dan Fish (multiple inheritance).
-- Kelas ini mendefinisikan method-method yang dideklarasikan di kelas Fish dan AquariumObject.
-- Fungsi dari kelas ini sesuai dengan spesifikasi tugas yang diberikan.
+	Untuk sistem lain, dapat mengikuti instruksi di halaman-halaman berikut:
+	- [SDL2](http://lazyfoo.net/tutorials/SDL/01_hello_SDL/index.php)
+	- [SDL2_Image](https://www.libsdl.org/projects/SDL_image/)
+	- [SDL2_TTF](https://www.libsdl.org/projects/SDL_ttf/)
 
-7. Kelas LinkedList
-- Kelas ini merupakan kelas yang wajib dibuat di dalam tugas ini.
-- Kelas ini merupakan kelas yang menggunakan sistem templating, sehingga dapat memiliki tipe yang berbeda-beda, sesuai dengan yang akan didefinisikan nanti.
-- Kelas ini mempunyai data yang bertipe Node (sebuah kelas).
+	Untuk melihat fungsi-fungsi yang disediakan *library* ini, bacalah komentar di
+	file `oop.hpp` dan contoh pemakaian di `main.cpp`.
 
-8. Kelas Node
-- Kelas Node merupakan definisi kelas yang akan digunakan pada kelas LinkedList.
-- Method-method yang dimilikinya yaitu method-method standar seperti ctor, dtor, setter, dan lainnya.
-- Atribut data memiliki tipe T yang merupakan sebuah kelas templating.
-
-9. Kelas Piranha
-- Kelas Piranha merupakan kelas turunan dari kelas AquariumObject dan Fish (multiple inheritance).
-- Kelas ini mendefinisikan method-method yang dideklarasikan di kelas Fish dan AquariumObject.
-- Fungsi dari kelas ini sesuai dengan spesifikasi tugas yang diberikan.
-
-10. Kelas Snail
-- Kelas ini merupakan kelas turunan dari kelas AquariumObject.
-- Kelas ini mendefinisikan method-method yang telah didefinisikan oleh kelas abstraknya.
+	Disediakan sebuah Makefile sederhana untuk mengcompile seluruh program Anda.
+	Silakan dimodifikasi sesuai kebutuhan.

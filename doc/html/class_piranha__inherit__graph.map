@@ -1,4 +1,0 @@
-<map id="Piranha" name="Piranha">
-<area shape="rect" id="node2" href="$class_fish.html" title="Fish" alt="" coords="5,5,52,32"/>
-<area shape="rect" id="node3" href="$class_aquarium_object.html" title="AquariumObject" alt="" coords="77,5,191,32"/>
-</map>

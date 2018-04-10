@@ -2,6 +2,7 @@
 #define PIRANHA_HPP
 
 #include <iostream>
+#include <math.h>
 
 #include "AquariumObject.hpp"
 #include "../oop.hpp"
@@ -11,47 +12,78 @@
 
 using namespace std;
 
-//Definisi kelas Piranha
+/**
+ * Definisi Kelas Piranha
+ * Fungsi:
+ * Kelas ini merupakan instance-instance dari Piranha
+ */
 class Piranha : public Fish, public AquariumObject{
 	public:
-		//ctor
+		/// Default ctor
 		Piranha();
 
-		//dtor
+		// Default dtor
 		virtual ~Piranha();
 
-		//fungsi memindahkan objek
+		/**
+		 * @Override
+		 * Fungsi ini melakukan hal berikut:
+		 * Jika Piranha tidak sedang dalam keadaan lapar, Piranha akan melakukan gerakan acak
+		 * Jika Piranha sedang dalam keadaan lapar, maka:
+		 * Jika tidak terdapat Guppy, maka Piranha akan bergerak secara acak
+		 * Jika terdapat Guppy, maka Piranha akan bergerak menuju posisi Guppy terdekat
+		 */
 		void move();
-		
-		//fungsi memakan Guppy
+
+		/**
+		 * @Override
+		 * Fungsi ini melakukan hal berikut:
+		 * Mengatur ulang hunger menjadi MAX_HUNGER
+		 * Menjatuhkan koin dengan memanggil fungsi dropCoin()
+		 */
 		void eat();
 
-		//fungsi drop coin
+		/**
+		 * @Override
+		 * Fungsi ini melakukan hal berikut:
+		 * Membuat objek koin baru dengan perhitungan nilai GUPPY_PRICE * (Level Pertumbuan Guppy + 1)
+		 */
 		void dropCoin();
 
-		//fungsi pengecekan hunger
+		/**
+		 * Fungsi memeriksa apakah Piranha sedang dalam keadaan lapar atau tidak
+		 * @return TRUE jika hunger <= HUNGER_TIME, FALSE jika tidak
+		 */
 		bool isHungry();
 
-		//getter
-		double getRadius() const;
-
-		bool operator!=(const Piranha&);
-
+		/// Getter
 		int getHunger();
-		void setHunger(int);
-
-		//getter static list
+		double getRadius() const;
 		static LinkedList<Coin>* & getListCoin();
 		static LinkedList<Guppy>* & getListGuppy();
 		static LinkedList<Piranha>* & getListPiranha();
 
+		/// Setter
+		void setHunger(int);
+
+		/**
+		 * @Override
+		 * @param objek Piranha
+		 * @return TRUE jika kedua Piranha yang dibandingkan bukan objek yang sama, FALSE jika sebaliknya
+		 * Membandingkan kedua Piranha berdasarkan kesamaan posisi x dan posisi y
+		 */
+		bool operator!=(const Piranha &);
+
 	protected:
+		/// Titik x,y target pergerakan acak
 		double targetX, targetY;
 		
 	private:
+		/// Daftar Atribut
 		int hunger;
 		double lastHungerTime, lastLoopTime, lastMoveTime;
 
+		/// Atribut LinkedList
 		static LinkedList<Coin>* & getObjectListCoin() {
 	        static LinkedList<Coin>* list_coin;
 	        return list_coin;
@@ -67,11 +99,11 @@ class Piranha : public Fish, public AquariumObject{
 
     	Guppy* targetFood;
 
+		/// Daftar Konstanta
 		const static int HUNGER_TIME = 30;
 		const static int MAX_HUNGER = 60;
 		const static int VELOCITY = 50;
 		const static int GUPPY_PRICE = 15;
-
 		constexpr static double radius = 40;
 };
 

@@ -1,11 +1,6 @@
-// file : Guppy.cpp
-
+/// Implementasi Kelas Guppy
 #include "Guppy.hpp"
-#include <math.h>
-#include <stdlib.h>
-#include <sstream>
 
-//ctor
 Guppy::Guppy(){
 	state = 1;
 	timesEaten = 0;
@@ -21,28 +16,25 @@ Guppy::Guppy(){
 	this->setY((rand() % 550) + 120);
 }
 
-//dtor
 Guppy::~Guppy() {}
 
-//fungsi memindahkan objek
 void Guppy::move(){
-
 	stringstream fname;
 	fname << "guppy";
 
-	//kurangi hunger
+	/// Mengurangkan nilai hunger
 	if (time_since_start() - lastHungerTime >= 1) {
 		hunger--;
 		lastHungerTime = time_since_start();
 	}
 
-	//drop coin
+	/// Menjatuhkan koin
 	if (time_since_start() - lastDropTime >= DROP_TIME) {
 		dropCoin();
 	}
 
 	FishFood* tempFood = NULL;
-	//movement
+	/// Pergerakan mengejar FishFood terdekat
 	if ((isHungry()) && (getListFishFood()->getCount() != 0)) {
 		LinkedList<FishFood>* listFishFood = getListFishFood();
 
@@ -61,6 +53,7 @@ void Guppy::move(){
 	}
 
 	if (tempFood != NULL) {
+		/// FishFood ditemukan
 		targetFood = tempFood;
 
 		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
@@ -80,7 +73,7 @@ void Guppy::move(){
 			eat();
 		}
 	} else {
-		//random move
+		/// Tidak ada FishFood yang ditemukan, sehingga bergerak acak
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1080;
 			while (fabs(targetX-this->getX()) < 200){
@@ -114,7 +107,6 @@ void Guppy::move(){
 	}
 }
 
-//fungsi memakan FishFood
 void Guppy::eat(){
 	getListFishFood()->remove(*targetFood);
 	targetFood = NULL;
@@ -126,25 +118,20 @@ void Guppy::eat(){
 	}
 }
 
-//fungsi drop coin
 void Guppy::dropCoin(){
 	getListCoin()->add(new Coin(getX(), getY(), COIN_DROP_VALUE * state));
 	lastDropTime = time_since_start();
 }
 
-//fungsi pengecekan hunger
 bool Guppy::isHungry(){
-	//not implemented yet
 	return (hunger <= HUNGER_TIME);
 }
 
-//getter
 double Guppy::getRadius() const{
 	return this->radius;
 }
 
 bool Guppy::operator!=(const Guppy& guppy){
-	//not impelented yet
 	return !((this->getX() == guppy.getX()) && (this->getY() == guppy.getY()));
 }
 
@@ -172,13 +159,14 @@ void Guppy::setTimesEaten(int timesEaten) {
 	this->timesEaten = timesEaten;
 }
 
-//getter static list
 LinkedList<Coin>* & Guppy::getListCoin(){
 	return getObjectListCoin();
 }
+
 LinkedList<FishFood>* & Guppy::getListFishFood(){
 	return getObjectListFishFood();
 }
+
 LinkedList<Guppy>* & Guppy::getListGuppy(){
 	return getObjectListGuppy();
 }

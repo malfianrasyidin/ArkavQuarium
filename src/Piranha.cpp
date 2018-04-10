@@ -1,7 +1,6 @@
+/// Implementasi Kelas Piranha
 #include "Piranha.hpp"
-#include <math.h>
 
-//ctor
 Piranha::Piranha(){
 	hunger = MAX_HUNGER;
 	targetFood = NULL;
@@ -14,13 +13,11 @@ Piranha::Piranha(){
 	this->setY((rand() % 550) + 120);
 }
 
-//dtor
 Piranha::~Piranha() {}
 
-//fungsi memindahkan objek
 void Piranha::move(){
 
-	//kurangi hunger
+	/// Mengurangkan nilai hunger
 	if (time_since_start() - lastHungerTime >= 1) {
 		hunger--;
 		lastHungerTime = time_since_start();
@@ -28,13 +25,15 @@ void Piranha::move(){
 
 	Guppy* tempGuppy = NULL;
 
-	//movement
+	// Pergerakan Piranha
 	if (isHungry() && getListGuppy()->getCount() != 0) {
+		/// Piranha sedang dalam keadaan lapar
 		LinkedList<Guppy>* listGuppy = getListGuppy();
 
 		int idx = 0;
 		double min = getDistance(listGuppy->get(0));
 
+		/// Mencari posisi Guppy terdekat
 		for (int i = 1; i < listGuppy->getCount(); i++) {
 			double temp = getDistance(listGuppy->get(i));
 			if (min > temp){
@@ -47,6 +46,7 @@ void Piranha::move(){
 	}
 
 	if (tempGuppy != NULL) {
+		/// Piranha bergerak menuju Guppy terdekat
 		targetFood = tempGuppy;
 
 		double angle = atan2(targetFood->getY() - this->getY(), targetFood->getX() - this->getX());
@@ -61,10 +61,11 @@ void Piranha::move(){
 		}
 
 		if (isIntersect(*targetFood)) {
+			/// Piranha memakan makanan
 			eat();
 		}
 	} else {
-		//random move
+		/// Piranha bergerak dengan arah acak
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1280;
 			while (fabs(targetX-this->getX()) < 200){
@@ -96,7 +97,6 @@ void Piranha::move(){
 	}
 }
 
-//fungsi memakan Guppy
 void Piranha::eat(){
 	dropCoin();
 	getListGuppy()->remove(*targetFood);
@@ -104,7 +104,6 @@ void Piranha::eat(){
 	hunger = MAX_HUNGER;
 }
 
-//fungsi drop coin
 void Piranha::dropCoin(){
 	getListCoin()->add(new Coin(getX(), getY(), GUPPY_PRICE * (targetFood->getState() + 1)));
 }
@@ -113,7 +112,6 @@ bool Piranha::isHungry() {
 	return (hunger <= HUNGER_TIME);
 }
 
-//getter
 double Piranha::getRadius() const {
 	return this->radius;
 }
@@ -130,13 +128,14 @@ void Piranha::setHunger(int hunger) {
 	this->hunger = hunger;
 }
 
-//getter static list
 LinkedList<Coin>* & Piranha::getListCoin(){
 	return getObjectListCoin();
 }
+
 LinkedList<Guppy>* & Piranha::getListGuppy(){
 	return getObjectListGuppy();
 }
+
 LinkedList<Piranha>* & Piranha::getListPiranha(){
 	return getObjectListPiranha();
 }
