@@ -1,9 +1,6 @@
 #ifndef FISH_HPP
 #define FISH_HPP
 
-#include <iostream>
-using namespace std;
-
 /**
  * Definisi Kelas Abstrak Fish
  * Fungsi:

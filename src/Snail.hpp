@@ -1,13 +1,8 @@
 #ifndef SNAIL_HPP
 #define SNAIL_HPP
 
-#include <iostream>
-
 #include "AquariumObject.hpp"
 #include "Coin.hpp"
-#include "../oop.hpp"
-
-using namespace std;
 
 /**
  * Definisi Kelas Snail

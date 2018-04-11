@@ -1,12 +1,7 @@
 #ifndef FISHFOOD_HPP
 #define FISHFOOD_HPP
 
-#include <iostream>
-
 #include "AquariumObject.hpp"
-#include "../oop.hpp"
-
-using namespace std;
 
 /**
  * Definisi Kelas FishFood

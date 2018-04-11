@@ -1,12 +1,12 @@
-#include <math.h>
-#include <sstream>
 #include <iostream>
+#include <math.h>
 #include <stdlib.h>
+#include <sstream>
 
 #include "oop.hpp"
-#include "./src/LinkedList.hpp"
-#include "./src/Node.hpp"
-#include "./src/Aquarium.hpp"
+#include "src/LinkedList.hpp"
+#include "src/Node.hpp"
+#include "src/Aquarium.hpp"
 #include "filestream.hpp"
 
 const int GUPPY_VALUE = 15;
@@ -21,14 +21,15 @@ int main( int argc, char* args[] )
 	init();
 	srand(time(0));
   
-    int eggstate = 3;
+    int eggstate = 1;
     int money = 25;
 
 	bool running = true;
     bool pause = false;
     bool quit = false;
+    bool load = false;
 
-    /// Inisialisasi Aquarium
+    //inisialisasi Aquarium
     Aquarium aquarium;
     aquarium.getSnail()->setMoney(&money);
     Coin::getListCoin() = &aquarium.getListCoin();
@@ -40,9 +41,8 @@ int main( int argc, char* args[] )
     Piranha::getListGuppy() = &aquarium.getListGuppy();
     Piranha::getListPiranha() = &aquarium.getListPiranha();
     Snail::getListCoin() = &aquarium.getListCoin();
-    aquarium.getListGuppy().add(new Guppy());
 
-    /// Main Menu
+    //main menu
     draw_image("menu.jpg",545,360);
     draw_text("PLAY", 100, 400, 380, 255, 255, 255);
     update_screen();
@@ -50,10 +50,11 @@ int main( int argc, char* args[] )
     while(running) {
         handle_input();
 
-        /// Membaca data dari file
+        //load file
         for (auto keys : get_tapped_keys()) {
             if (keys == SDLK_1) {
                 load_file("save.txt", aquarium, &eggstate, &money);
+                load = true;
             }
         }
         if (get_x_position() != 0) {
@@ -71,9 +72,13 @@ int main( int argc, char* args[] )
         running = true;
     }
 
+    if (!load) {
+        aquarium.getListGuppy().add(new Guppy());
+    }
+
 
 	while (running) {
-		/// sstream eggstate
+		//sstream eggstate
 		stringstream eggpic;
 		eggpic << "egg" << eggstate << ".png";
     
@@ -104,21 +109,21 @@ int main( int argc, char* args[] )
             clear_y_position();
 
 		} else if (get_x_position() < 120 && get_x_position() > 35 && money >= GUPPY_VALUE){
-			/// Membeli Guppy
+			// buy guppy
             money -= GUPPY_VALUE;
 			aquarium.getListGuppy().add(new Guppy());
 			clear_x_position();
 			clear_y_position();
 
 		} else if (get_x_position() < 235 && get_x_position() > 160 && money >= PIRANHA_VALUE){
-			/// Membeli Piranha
+			// buy piranha
             money -= PIRANHA_VALUE;
 			aquarium.getListPiranha().add(new Piranha());
 			clear_x_position();
 			clear_y_position();
 
 		} else if(get_x_position() > 255 && get_x_position() < 333){
-			/// Membeli Egg
+			// buy egg
 			if (eggstate == 1 && money >= FIRST_EGG_VALUE){
                 money -= FIRST_EGG_VALUE;
                 eggstate++;
@@ -165,7 +170,7 @@ int main( int argc, char* args[] )
             }
        }
 
-		/// Menggambar ikan di posisi yang tepat
+		// Gambar ikan di posisi yang tepat.
 		clear_screen();
 		draw_image("bg.png",545,360);
 		draw_image(eggpic.str(),295,40);
@@ -187,12 +192,12 @@ int main( int argc, char* args[] )
 		aquarium.getSnail()->move();
 		update_screen();
     
-        /// Mengecek kondisi menang
+        //check win
         if (eggstate == 4) {
             running = false;
         }
 
-        /// Mengecek kondisi kalah
+        //check lose
         if ((money < GUPPY_VALUE) && (aquarium.getListGuppy().getCount() == 0) && (aquarium.getListPiranha().getCount() == 0)) {
             running = false;
         }       
@@ -200,7 +205,7 @@ int main( int argc, char* args[] )
 
     running = true;
 
-    /// Tampilan kondisi menang
+    //win screen
     if (eggstate == 4) {
         clear_screen();
         draw_image("win.jpg",545,360);
@@ -234,5 +239,6 @@ int main( int argc, char* args[] )
     }
 
 	close();
+
 	return 0;
 }

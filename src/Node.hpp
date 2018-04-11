@@ -1,9 +1,6 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include <iostream>
-using namespace std;
-
 /**
  * Definisi Kelas Template Node
  * Fungsi:

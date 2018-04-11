@@ -1,8 +1,9 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
 
-#include <iostream>
 #include "Node.hpp"
+#include <iostream>
+
 using namespace std;
 
 /**

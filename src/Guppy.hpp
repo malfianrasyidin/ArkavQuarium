@@ -1,18 +1,14 @@
 #ifndef GUPPY_HPP
 #define GUPPY_HPP
 
-#include <iostream>
 #include <math.h>
 #include <stdlib.h>
 #include <sstream>
 
-#include "../oop.hpp"
+#include "AquariumObject.hpp"
 #include "Fish.hpp"
 #include "FishFood.hpp"
-#include "AquariumObject.hpp"
-#include "FishFood.hpp"
 #include "Coin.hpp"
-using namespace std;
 
 /**
  * Definisi Kelas Guppy

@@ -1,12 +1,7 @@
 #ifndef COIN_HPP
 #define COIN_HPP
 
-#include <iostream>
-
 #include "AquariumObject.hpp"
-#include "../oop.hpp"
-
-using namespace std;
 
 /**
  * Definisi Kelas Coin
