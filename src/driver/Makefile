@@ -1,5 +1,5 @@
 # Masukkan semua file cpp Anda
-OBJS = FishFoodDriver.cpp ../../oop.cpp ../*.cpp
+OBJS = PiranhaDriver.cpp ../../oop.cpp ../*.cpp
 
 CC = g++
 COMPILER_FLAGS = -std=c++11 -Wall -O2
