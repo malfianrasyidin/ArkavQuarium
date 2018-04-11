@@ -37,6 +37,7 @@ class FishFood : public AquariumObject{
 		 * Membandingkan kedua FishFood berdasarkan kesamaan posisi x dan posisi y
 		 */
 		bool operator!=(const FishFood&);
+		void setLoopTime(double);
 
     	/// Getter
     	static LinkedList<FishFood>* & getListFishFood();

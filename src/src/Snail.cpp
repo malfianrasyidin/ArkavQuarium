@@ -67,3 +67,7 @@ LinkedList<Coin>* & Snail::getListCoin(){
 void Snail::setMoney(int* money) {
 	this->money = money;
 }
+
+void Snail::setLoopTime(double lastLoopTime) {
+	this->lastLoopTime = lastLoopTime;
+}

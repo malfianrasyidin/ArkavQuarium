@@ -41,6 +41,7 @@ class Snail : public AquariumObject {
 
 		/// Setter
 		void setMoney(int*);
+		void setLoopTime(double);
 		
 	private:
 		/// Daftar atribut

@@ -77,11 +77,11 @@ void Guppy::move(){
 		if (time_since_start() - lastMoveTime >= 3){
 			targetX = rand() % 1080;
 			while (fabs(targetX-this->getX()) < 200){
-				targetX = rand() % 1080;
+				targetX = (rand() % 1080);
 			}
 			targetY = (rand() % 500) + 120;
 			while (fabs(targetY-this->getY()) < 200){
-				targetY = (rand() % 500) + 120;
+				targetY = ((rand() % 500) + 120);
 			}
 			lastMoveTime = time_since_start();
 		}
@@ -157,6 +157,10 @@ void Guppy::setState(int state) {
 
 void Guppy::setTimesEaten(int timesEaten) {
 	this->timesEaten = timesEaten;
+}
+
+void Guppy::setLoopTime(double lastLoopTime){
+	this->lastLoopTime = lastLoopTime;
 }
 
 LinkedList<Coin>* & Guppy::getListCoin(){

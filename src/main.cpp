@@ -22,7 +22,7 @@ int main( int argc, char* args[] )
 	srand(time(0));
   
     int eggstate = 1;
-    int money = 1000;
+    int money = 25;
 
 	bool running = true;
     bool pause = false;
@@ -60,6 +60,7 @@ int main( int argc, char* args[] )
             }
         }
         if (get_x_position() != 0) {
+            aquarium.getSnail()->setLoopTime(time_since_start());
             running = false;
             clear_x_position();
             clear_y_position();
@@ -69,7 +70,7 @@ int main( int argc, char* args[] )
             quit = true;
         }
     }
-    
+
     if (!quit) {
         running = true;
     }
@@ -144,7 +145,7 @@ int main( int argc, char* args[] )
             pause = true;
             clear_x_position();
             clear_y_position();
-
+            
             clear_screen();
             draw_image("bg.png",545,360);
             draw_text("PAUSE", 100, 400, 380, 255, 255, 255);
@@ -153,7 +154,6 @@ int main( int argc, char* args[] )
 
             while (pause) {
                 handle_input();
-
                 for (auto key : get_tapped_keys()) {
                     if (key == SDLK_1) {
                         save_file("save.txt", aquarium, eggstate, money);
@@ -161,6 +161,25 @@ int main( int argc, char* args[] )
                 }
 
                 if (get_x_position() != 0) {
+
+                    //normalize time
+                    aquarium.getSnail()->setLoopTime(time_since_start());
+                    for (int i = 0;i<aquarium.getListGuppy().getCount();i++){
+                        aquarium.getListGuppy().get(i).setLoopTime(time_since_start());
+                    }
+                    
+                    for (int i = 0;i<aquarium.getListPiranha().getCount();i++){
+                        aquarium.getListPiranha().get(i).setLoopTime(time_since_start());
+                    }
+
+                    for (int i = 0;i<aquarium.getListCoin().getCount();i++){
+                        aquarium.getListCoin().get(i).setLoopTime(time_since_start());
+                    }
+
+                    for (int i = 0;i<aquarium.getListFishFood().getCount();i++){
+                        aquarium.getListFishFood().get(i).setLoopTime(time_since_start());
+                    }
+
                     pause = false;
                     clear_x_position();
                     clear_y_position();

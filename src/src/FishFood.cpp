@@ -27,6 +27,10 @@ bool FishFood::operator!=(const FishFood& fishfood){
 	return !(this->getX() == fishfood.getX() && this->getY() == fishfood.getY());
 }
 
+void FishFood::setLoopTime(double lastLoopTime) {
+	this->lastLoopTime = lastLoopTime;
+}
+
 LinkedList<FishFood>* & FishFood::getListFishFood(){
 	return getObjectListFishFood();
 }

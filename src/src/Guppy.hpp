@@ -69,6 +69,7 @@ class Guppy : public Fish, public AquariumObject{
 		void setHunger(int);
 		void setState(int);
 		void setTimesEaten(int);
+		void setLoopTime(double);
 		
 		/**
 		 * @Override

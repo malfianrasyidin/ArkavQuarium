@@ -36,3 +36,7 @@ bool Coin::operator!=(const Coin& coin) {
 LinkedList<Coin>* & Coin::getListCoin(){  
 	return getObjectListCoin();  
 }
+
+void Coin::setLoopTime(double lastLoopTime) {
+	this->lastLoopTime = lastLoopTime;
+}

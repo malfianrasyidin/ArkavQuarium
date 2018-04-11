@@ -128,6 +128,10 @@ void Piranha::setHunger(int hunger) {
 	this->hunger = hunger;
 }
 
+void Piranha::setLoopTime(double loopTime) {
+	this->lastLoopTime = loopTime;
+}
+
 LinkedList<Coin>* & Piranha::getListCoin(){
 	return getObjectListCoin();
 }

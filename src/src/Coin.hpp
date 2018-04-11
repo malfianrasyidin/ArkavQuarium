@@ -31,6 +31,7 @@ class Coin : public AquariumObject{
 		/// Default getter
 		int getValue() const;
 		double getRadius() const;
+		void setLoopTime(double);
 		static LinkedList<Coin> *&getListCoin();
 
 		/**

@@ -61,6 +61,7 @@ class Piranha : public Fish, public AquariumObject{
 
 		/// Setter
 		void setHunger(int);
+		void setLoopTime(double);
 
 		/**
 		 * @Override
