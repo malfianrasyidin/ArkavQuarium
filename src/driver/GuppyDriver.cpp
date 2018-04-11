@@ -3,10 +3,13 @@
 
 int main()
 {
-    // Guppy guppy(10.0, 10.0);
+    Guppy guppy;
 
-    // /// Test Script
-    // cout << "Guppy x position: " << guppy.getX() << endl;
-    // cout << "Guppy y position: " << guppy.getY() << endl;
-    // cout << "Guppy radius: " << guppy.getRadius() << endl;
+    /// Test Script
+    cout << "Guppy isHungry(): " << guppy.isHungry() << endl;
+    cout << "Guppy getRadius(): " << guppy.getRadius() << endl;
+    cout << "Guppy getHunger(): " << guppy.getHunger() << endl;
+    cout << "Guppy getState(): " << guppy.getState() << endl;
+    cout << "Guppy getTimesEaten(): " << guppy.getTimesEaten() << endl;
+
 }

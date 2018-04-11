@@ -1,11 +1,12 @@
 // Piranha Driver
 #include "../Piranha.hpp"
 
-int main(){
-    // Piranha piranha = new Piranha();
+int main()
+{
+    Piranha piranha;
 
     /// Test Script
-    // cout << "Piranha x position: " << piranha.getX() << endl;
-    // cout << "Piranha y position: " << piranha.getY() << endl;
-    // cout << "Piranha radius: " << piranha.getRadius() << endl;
+    cout << "Piranha isHungry(): " << piranha.isHungry() << endl;
+    cout << "Piranha getRadius(): " << piranha.getRadius() << endl;
+    cout << "Piranha getHunger(): " << piranha.getHunger() << endl;
 }
