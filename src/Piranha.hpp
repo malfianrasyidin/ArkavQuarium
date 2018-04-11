@@ -1,16 +1,12 @@
 #ifndef PIRANHA_HPP
 #define PIRANHA_HPP
 
-#include <iostream>
 #include <math.h>
 
 #include "AquariumObject.hpp"
-#include "../oop.hpp"
 #include "Fish.hpp"
 #include "Coin.hpp"
 #include "Guppy.hpp"
-
-using namespace std;
 
 /**
  * Definisi Kelas Piranha

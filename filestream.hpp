@@ -15,9 +15,6 @@ void load_file(string filename, Aquarium& aquarium, int* eggstate, int* money) {
     ifstream loadfile (filename);
 
     if (loadfile.is_open()) {
-        //remove default guppy
-        aquarium.getListGuppy().remove(aquarium.getListGuppy().get(0));
-
         //load money
         getline(loadfile, buff);
         if (buff == "MONEY") {
