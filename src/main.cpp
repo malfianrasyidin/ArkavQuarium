@@ -22,7 +22,7 @@ int main( int argc, char* args[] )
 	srand(time(0));
   
     int eggstate = 1;
-    int money = 25;
+    int money = 1000;
 
 	bool running = true;
     bool pause = false;
@@ -45,6 +45,7 @@ int main( int argc, char* args[] )
     //main menu
     draw_image("menu.jpg",545,360);
     draw_text("PLAY", 100, 400, 380, 255, 255, 255);
+    draw_text("Press num 1 to load saved game", 20, 380, 650, 255, 255, 255);
     update_screen();
 
     while(running) {
@@ -55,6 +56,7 @@ int main( int argc, char* args[] )
             if (keys == SDLK_1) {
                 load_file("save.txt", aquarium, &eggstate, &money);
                 load = true;
+                running = false;
             }
         }
         if (get_x_position() != 0) {
@@ -146,6 +148,7 @@ int main( int argc, char* args[] )
             clear_screen();
             draw_image("bg.png",545,360);
             draw_text("PAUSE", 100, 400, 380, 255, 255, 255);
+            draw_text("Press num 1 to save the game", 20, 380, 650, 255, 255, 255);
             update_screen();
 
             while (pause) {
@@ -174,7 +177,17 @@ int main( int argc, char* args[] )
 		clear_screen();
 		draw_image("bg.png",545,360);
 		draw_image(eggpic.str(),295,40);
-        draw_text(to_string(money) , 25, 940, 55, 255, 255, 255);
+        draw_text(to_string(money) , 25, 940, 55, 180, 230, 180);
+
+        draw_text(to_string(GUPPY_VALUE) , 18, 73, 68, 200, 200, 255);
+        draw_text(to_string(PIRANHA_VALUE) , 18, 187, 68, 200, 200, 255);
+        if (eggstate == 1){
+            draw_text(to_string(FIRST_EGG_VALUE) , 18, 280, 68, 200, 200, 255);    
+        } else if (eggstate == 2) {
+            draw_text(to_string(SECOND_EGG_VALUE) , 18, 280, 68, 200, 200, 255);
+        } else if (eggstate == 3) {
+            draw_text(to_string(THIRD_EGG_VALUE) , 18, 280, 68, 200, 200, 255);
+        }
         draw_text("PAUSE" , 25, 940, 8, 255, 255, 255);
 
 		for (int i=0; i< aquarium.getListCoin().getCount(); i++){
@@ -209,7 +222,7 @@ int main( int argc, char* args[] )
     if (eggstate == 4) {
         clear_screen();
         draw_image("win.jpg",545,360);
-        draw_text("WIN", 100, 400, 180, 255, 255, 255);
+        draw_text("YOU WIN", 100, 400, 180, 230, 255, 0);
         update_screen();
 
         while (running) {
@@ -224,7 +237,7 @@ int main( int argc, char* args[] )
     } else {
         clear_screen();
         draw_image("lose.jpg",545,360);
-        draw_text("LOSE", 100, 400, 180, 255, 255, 255);
+        draw_text("YOU LOSE", 100, 400, 180, 255, 0, 0);
         update_screen();
 
         while (running) {
